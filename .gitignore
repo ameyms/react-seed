@@ -7,6 +7,9 @@ pids
 *.pid
 *.seed
 
+# Build data
+dist
+
 # Generated files
 .gen
 
