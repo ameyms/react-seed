@@ -1,0 +1,32 @@
+@evenRows: #f3f3f3;
+@oddRows: #FFFFFF;
+@border: #ccc;
+
+.collectionContainer {
+
+    width: 200px;
+    border: 1px solid @border;
+
+    .headerRow {
+        float: right;
+    }
+
+    .numberCollection {
+        clear: both;
+        .numberRow {
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+
+            &:nth-child(even) {
+                background-color: @evenRows;
+                color: darken(@evenRows, 90%);
+            }
+
+            &:nth-child(odd) {
+                background-color: @oddRows;
+                color: darken(@oddRows, 90%);
+            }
+        }
+    }
+}
