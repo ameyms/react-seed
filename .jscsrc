@@ -1,0 +1,12 @@
+{
+
+    "preset": "airbnb",
+    "esprima": "esprima-fb",
+    "validateIndentation": 4,
+
+    "excludeFiles": ["dist/**/js/*.js"],
+
+    "disallowMultipleVarDecl": "exceptUndefined",
+    "safeContextKeyword": ["that", "self"]
+
+}
