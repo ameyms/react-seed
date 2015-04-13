@@ -1,8 +1,14 @@
+/*
+Shamelessly copied from Facebook Flux's TodoMVC example
+github.com/facebook/flux/blob/master/examples/flux-todomvc/js/dispatcher/__tests__/AppDispatcher-test.js
+*/
+
 jest.autoMockOff();
 
 describe('AppDispatcher', function() {var AppDispatcher;
 
-  beforeEach(function() {AppDispatcher = require('../AppDispatcher.js');
+  beforeEach(function() {
+      AppDispatcher = require('../AppDispatcher.js');
   });
 
   it('sends actions to subscribers', function() {var listener = jest.genMockFunction(),
