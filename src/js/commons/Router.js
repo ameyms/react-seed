@@ -19,8 +19,11 @@ AppRouter = Backbone.Router.extend({
     }
 });
 
-routerInstance = new AppRouter();
-Backbone.history.start();
+module.exports = {
+    init: function () {
+        routerInstance = new AppRouter();
+        Backbone.history.start();
 
-// Export it as a singleton
-module.exports = routerInstance;
+        return routerInstance;
+    }
+};
