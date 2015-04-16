@@ -1,6 +1,8 @@
 module.exports = {
 
     start: function() {
+        process.env.DEV_SERVER = 1;
+
         var webpack = require('webpack'),
             WebpackDevServer = require('webpack-dev-server'),
             chalk = require('chalk'),
