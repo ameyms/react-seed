@@ -19,7 +19,8 @@ module.exports = function(grunt) {
             },
 
             copy: {
-                html: {
+
+                build: {
                     files: [
                         {
                             cwd: 'src',
@@ -30,8 +31,14 @@ module.exports = function(grunt) {
                     ]
                 },
 
-                jsbundle: {
+                release: {
                     files: [
+                        {
+                            cwd: 'src',
+                            expand: true,
+                            src: ['index.html'],
+                            dest: 'dist/bundle/'
+                        },
                         {
                             cwd: 'dist/bundle/js',
                             expand: true,
@@ -49,6 +56,23 @@ module.exports = function(grunt) {
                             }
                         }
                     }
+                },
+
+                server: {
+                    files: [
+                        {
+                            cwd: 'src',
+                            expand: true,
+                            src: ['index.html'],
+                            dest: 'dist/bundle/'
+                        },
+                        {
+                            cwd: '.',
+                            expand: true,
+                            src: ['mock/responses/**/*.json'],
+                            dest: 'dist/bundle'
+                        }
+                    ]
                 }
             },
 
@@ -160,7 +184,7 @@ module.exports = function(grunt) {
             grunt.task.run([
                 'lint',
                 'clean:dist',
-                'copy:html',
+                'copy:server',
                 'watch:html'
             ]);
 
@@ -173,14 +197,14 @@ module.exports = function(grunt) {
         'test',
         'clean:dist',
         'shell:build',
-        'copy:html'
+        'copy:build'
     ]);
 
     grunt.registerTask('release', [
         'test',
         'clean:dist',
         'shell:release',
-        'copy',
+        'copy:release',
         'htmlmin'
     ]);
 
