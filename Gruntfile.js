@@ -104,13 +104,13 @@ module.exports = function(grunt) {
 
             eslint: {
                 source: {
-                    src: ['src/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
+                    src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
                 },
 
                 tests: {
                     src: ['src/js/{,*/}__tests__/*.{js,jsx}'],
                     options: {
-                        globals: ['jest', 'd3'],
+                        globals: ['jest'],
                         envs: ['jasmine', 'amd', 'node', 'browser']
                     }
                 },

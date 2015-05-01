@@ -2,7 +2,7 @@ var webpack = require('webpack'),
     path = require('path'),
     chalk = require('chalk'),
 
-    definePlugin = require('./defs'),
+    normalReplacePlugin,
     commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js'),
     hotReplacePlugin = new webpack.HotModuleReplacementPlugin(),
     noErrorsPlugin = new webpack.NoErrorsPlugin(),
@@ -13,6 +13,9 @@ var webpack = require('webpack'),
         port: 9000
     },
     rootDir = path.resolve(__dirname, '../../');
+
+normalReplacePlugin = new webpack.NormalModuleReplacementPlugin(/ApiUrls\.js/,
+       path.join(rootDir, 'mock/MockApiUrls.js'));
 
 console.log(chalk.blue('Output path is now ' + rootDir + 'dist/bundle/js') );
 
@@ -80,5 +83,5 @@ module.exports = {devserver: devServerOpts,
         alias: {styles: 'src/styles'}
     },
 
-    plugins: [definePlugin, commonsPlugin, hotReplacePlugin, noErrorsPlugin]
+    plugins: [normalReplacePlugin, commonsPlugin, hotReplacePlugin, noErrorsPlugin]
 };
