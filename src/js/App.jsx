@@ -33,6 +33,9 @@ App = React.createClass({
     },
 
     render: function() {
+
+        var heading = this.state.heading + ', React';
+
         return (
             <div>
                 <div className="header">
@@ -40,7 +43,7 @@ App = React.createClass({
                 </div>
                 <div className="container">
                     <div className="jumbotron">
-                        <h1>{this.state.heading}, React</h1>
+                        <h1>{heading}</h1>
                     </div>
                     <div className="col-lg-12">
                         <Greeter/>
