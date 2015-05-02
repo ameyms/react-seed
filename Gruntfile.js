@@ -1,5 +1,3 @@
-/* jshint camelcase: false */
-
 module.exports = function(grunt) {
 
     var devServer = require('./build/webpack/dev-server');
@@ -88,20 +86,6 @@ module.exports = function(grunt) {
                 }
             },
 
-            jscs: {
-                source: {
-                    src: ['src/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
-                },
-
-                tests: {
-                    src: ['src/{,*/}__tests__/*.js']
-                },
-
-                scripts: {
-                    src: ['Gruntfile.js']
-                }
-            },
-
             eslint: {
                 source: {
                     src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
@@ -168,14 +152,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('lint', [
         'jsonlint',
-        'jscs',
         'eslint'
     ]);
 
     grunt.registerTask('test', [
-        'jsonlint',
-        'jscs',
-        'eslint',
+        'lint',
         'jest'
     ]);
 
