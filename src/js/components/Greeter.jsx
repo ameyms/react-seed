@@ -18,7 +18,7 @@ var Greeter = React.createClass({
         GreetingXhrApi.list().done(this.handleGreetingFetch.bind(this));
     },
 
-    handleGreetingFetch: function (data) {
+    handleGreetingFetch: function(data) {
         this.setState({list: data.data.list});
     },
 

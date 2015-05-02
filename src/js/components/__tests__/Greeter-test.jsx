@@ -17,7 +17,7 @@ describe('Greeter', function() {
 
         textBoxEl = TestUtils.findRenderedDOMComponentWithClass(greeterEl, 'greeter-text');
         spanEl = TestUtils.findRenderedDOMComponentWithClass(greeterEl, 'greeter-lbl');
-    } );
+    });
 
     it('initially says `Hello`', function() {
         expect(spanEl.getDOMNode().textContent).toEqual('Hello');
@@ -26,5 +26,5 @@ describe('Greeter', function() {
     it('changes greeting when its changed in textbox', function() {
         TestUtils.Simulate.change(textBoxEl, {target: {value: 'Namaste'}});
         expect(spanEl.getDOMNode().textContent).toEqual('Namaste');
-    } );
-} );
+    });
+});

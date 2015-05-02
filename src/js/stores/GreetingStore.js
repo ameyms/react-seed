@@ -26,7 +26,7 @@ var GreetingStore = assign({}, EventEmitter.prototype, {
 
 AppDispatcher.register(function(action) {
 
-    switch(action.actionType) {
+    switch (action.actionType) {
         case GreetingConstants.GREET:
             _currentGreeting = action.greetingText;
             GreetingStore.emitChange();

@@ -1,5 +1,3 @@
-/* @flow */
-
 var Backbone = require('backbone'),
     AppRouter, routerInstance;
 
@@ -20,7 +18,7 @@ AppRouter = Backbone.Router.extend({
 });
 
 module.exports = {
-    init: function () {
+    init: function() {
         routerInstance = new AppRouter();
         Backbone.history.start();
 
