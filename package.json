@@ -26,14 +26,14 @@
     "object-assign": "^2.0.0",
     "react": "^0.13.1",
     "event-emitter": "^0.3.3",
-    "bootstrap": "^3.3.4"
+    "bootstrap": "^3.3.4",
+    "d3": "^3.5.5",
+    "es6-promise": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
     "chalk": "^1.0.0",
     "css-loader": "^0.9.1",
-    "d3": "^3.5.5",
-    "es6-promise": "^2.0.1",
     "eslint": "^0.18.0",
     "eslint-plugin-react": "^2.0.2",
     "esprima-fb": "^14001.1.0-dev-harmony-fb",
