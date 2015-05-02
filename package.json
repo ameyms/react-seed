@@ -58,6 +58,7 @@
     "less": "^2.4.0",
     "less-loader": "^2.2.0",
     "load-grunt-tasks": "^3.1.0",
+    "opn": "^1.0.2",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^1.2.4",
     "react-tools": "^0.13.1",

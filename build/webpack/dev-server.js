@@ -1,3 +1,5 @@
+var opn = require('opn');
+
 module.exports = {
 
     start: function() {
@@ -20,11 +22,17 @@ module.exports = {
             stats: {colors: true}
         }).
         listen(config.devserver.port, 'localhost', function(err) {
+
             if (err) {
-                console.log(chalk.bgRed.bold(err) );
+                console.log(chalk.bgRed.bold(err));
+                return;
             }
-            console.log(chalk.white('Listening at',
-                chalk.black.bgWhite('localhost:' + config.devserver.port) ) );
-        } );
+
+            opn('localhost:' + config.devserver.port, function() {
+                console.log(chalk.white('Listening at',
+                    chalk.black.bgWhite('localhost:' + config.devserver.port)));
+            });
+
+        });
     }
 };
