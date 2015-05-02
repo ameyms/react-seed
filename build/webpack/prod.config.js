@@ -1,7 +1,6 @@
 var webpack = require('webpack'),
     path = require('path'),
     chalk = require('chalk'),
-    definePlugin = require('./defs'),
     commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js'),
     vendors = require('./vendors'),
     rootDir = path.resolve(__dirname, '../../');
@@ -68,5 +67,5 @@ module.exports = {
         alias: {styles: 'src/styles'}
     },
 
-    plugins: [definePlugin, commonsPlugin]
+    plugins: [commonsPlugin]
 };
