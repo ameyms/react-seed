@@ -1,9 +1,13 @@
 module.exports = function(grunt) {
 
-    var devServer = require('./build/webpack/dev-server');
-
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
+
+    var devServer = require('./build/webpack/dev-server'),
+        devBuildConfig = require('./build/webpack/dev.config'),
+        prodBuildConfig = require('./build/webpack/dev.config'),
+        jestConfig = grunt.file.readJSON('./build/jest/config.json'),
+        jestCacheDir = jestConfig.cacheDirectory.replace(/<rootDir>\//, '');
 
     // Define the configuration for all the tasks
     grunt.initConfig(
@@ -100,7 +104,7 @@ module.exports = function(grunt) {
                 },
 
                 scripts: {
-                    src: ['Gruntfile.js']
+                    src: ['Gruntfile.js', 'build/{,*/}*.js']
                 }
             },
 
@@ -123,21 +127,21 @@ module.exports = function(grunt) {
                 }
             },
 
+
+            webpack: {
+                dev: devBuildConfig,
+                build: prodBuildConfig
+            },
+
+
             shell: {
                 options: {
                     failOnError: true
                 },
-                build: {
-                    command: 'npm run build'
-                },
-
-                release: {
-                    command: 'npm run release'
-                },
-
-                test: {
-                    command: 'npm test'
+                createGenDir: {
+                    command: 'mkdir -p ' + jestCacheDir
                 }
+
             },
 
             watch: {
@@ -157,6 +161,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'lint',
+        'shell:createGenDir',
         'jest'
     ]);
 
@@ -177,14 +182,14 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'test',
         'clean:dist',
-        'shell:build',
+        'webpack:build',
         'copy:build'
     ]);
 
     grunt.registerTask('release', [
         'test',
         'clean:dist',
-        'shell:release',
+        'webpack:build',
         'copy:release',
         'htmlmin'
     ]);

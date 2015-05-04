@@ -18,7 +18,7 @@ commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 hotReplacePlugin = new webpack.HotModuleReplacementPlugin();
 noErrorsPlugin = new webpack.NoErrorsPlugin();
 
-console.log(chalk.blue('Output path is now ' + rootDir + '/dist/bundle/js') );
+console.log(chalk.blue('Output path is now ' + rootDir + '/dist/bundle/js'));
 
 module.exports = {devserver: devServerOpts,
 

@@ -3,11 +3,6 @@
   "version": "0.1.0",
   "description": "An opinionated starter kit for react with webpack & less",
   "scripts": {
-    "start": "node --version && node build/webpack/dev-server.js",
-    "test": "jest -c build/jest/config.json",
-    "build": "webpack -d --config build/webpack/prod.config.js --colors --display-reasons",
-    "release": "webpack -p --config build/webpack/prod.config.js --colors --display-chunks --display-reasons",
-    "pretest": "eslint --ext .js --ext .jsx src/js"
   },
   "author": "Amey Sakhadeo",
   "repository": {

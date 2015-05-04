@@ -5,7 +5,7 @@ var webpack = require('webpack'),
     vendors = require('./vendors'),
     rootDir = path.resolve(__dirname, '../../');
 
-console.log(chalk.blue('Output path is now ' + rootDir + 'dist/bundle/js') );
+console.log(chalk.blue('Output path is now ' + rootDir + 'dist/bundle/js'));
 
 module.exports = {
 
