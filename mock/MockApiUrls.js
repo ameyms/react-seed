@@ -5,7 +5,7 @@ var MANIFEST = {
 };
 
 module.exports = {
-    get: function (endpoint) {
+    get: function(endpoint) {
         return URL_BASE + MANIFEST[endpoint];
     }
 };

@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                 },
 
                 tests: {
-                    src: ['src/js/{,*/}__tests__/*.{js,jsx}'],
+                    src: ['src/js/{,*/}__tests__/*.{js,jsx}', 'mock/{,*/}*.js'],
                     options: {
                         globals: ['jest'],
                         envs: ['jasmine', 'amd', 'node', 'browser']
