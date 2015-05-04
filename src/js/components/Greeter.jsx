@@ -15,7 +15,7 @@ var Greeter = React.createClass({
     },
 
     componentDidMount: function() {
-        GreetingXhrApi.list().done(this.handleGreetingFetch.bind(this));
+        GreetingXhrApi.list().then(this.handleGreetingFetch);
     },
 
     handleGreetingFetch: function(data) {
@@ -39,7 +39,7 @@ var Greeter = React.createClass({
             len = this.state.list.length;
             for (i = 0; i < len; i++) {
                 greetingUl.push(
-                    <li>
+                    <li key={i}>
                         {this.state.list[i]}
                     </li>
                 );

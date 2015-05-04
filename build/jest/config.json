@@ -1,7 +1,7 @@
 {
     "moduleFileExtensions": [ "js", "json", "jsx" ],
     "testFileExtensions": [ "js", "json", "jsx" ],
-    "testPathDirs": ["<rootDir>/src/js/"],
+    "testPathDirs": ["<rootDir>/src/js/", "<rootDir>/mock"],
 
     "rootDir": "../../",
     "cacheDirectory": "<rootDir>/.gen/jest",
@@ -9,7 +9,8 @@
     "scriptPreprocessor": "<rootDir>/build/jest/module-preprocessor.js",
 
     "unmockedModulePathPatterns": [
-        "<rootDir>/node_modules/react"
+        "<rootDir>/node_modules/react",
+        "<rootDir>/node_modules/es6-promise"
     ],
 
     "collectCoverage": true

@@ -1,15 +1,24 @@
 jest.dontMock('../Greeter');
+jest.dontMock('../../../../mock/responses/greetings/list.json');
 
 describe('Greeter', function() {
 
-    var React, Greeter, TestUtils,
-        greeterEl, textBoxEl, spanEl;
+    var React, Greeter, TestUtils, GreetingXhrApi, Promise,
+        greeterEl, textBoxEl, spanEl, dummyPromise, mockResponse;
 
     beforeEach(function() {
 
         React = require('react/addons');
+        GreetingXhrApi = require('../../xhr/GreeterXhrApi');
+        Promise = require('es6-promise').Promise;
         Greeter = require('../Greeter');
         TestUtils = React.addons.TestUtils;
+        mockResponse = require('../../../../mock/responses/greetings/list.json');
+
+        dummyPromise = new Promise(function(resolve) {
+            resolve(mockResponse);
+        });
+        GreetingXhrApi.list.mockReturnValue(dummyPromise);
 
         greeterEl = TestUtils.renderIntoDocument(
             <Greeter/>
