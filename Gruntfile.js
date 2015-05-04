@@ -10,149 +10,147 @@ module.exports = function(grunt) {
         jestCacheDir = jestConfig.cacheDirectory.replace(/<rootDir>\//, '');
 
     // Define the configuration for all the tasks
-    grunt.initConfig(
-        {
-            pkg: grunt.file.readJSON('package.json'),
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-            clean: {
-                dist: {
-                    src: ['dist/*']
-                }
-            },
+        clean: {
+            dist: {
+                src: ['dist/*']
+            }
+        },
 
-            copy: {
+        copy: {
 
-                build: {
-                    files: [
-                        {
-                            cwd: 'src',
-                            expand: true,
-                            src: ['index.html'],
-                            dest: 'dist/bundle/'
-                        }
-                    ]
-                },
-
-                release: {
-                    files: [
-                        {
-                            cwd: 'src',
-                            expand: true,
-                            src: ['index.html'],
-                            dest: 'dist/bundle/'
-                        },
-                        {
-                            cwd: 'dist/bundle/js',
-                            expand: true,
-                            src: ['*.js'],
-                            dest: 'dist/bundle/js'
-                        }
-                    ],
-                    options: {
-                        process: function(content, srcpath) {
-
-                            if (/\.js$/.test(srcpath)) {
-                                return content.replace(
-                                /(\w+)\.createClass\(\s*\{\s*displayName:\s*["'][A-Za-z]+["'],/g,
-                                '$1.createClass({');
-                            }
-                        }
+            build: {
+                files: [
+                    {
+                        cwd: 'src',
+                        expand: true,
+                        src: ['index.html'],
+                        dest: 'dist/bundle/'
                     }
-                },
-
-                server: {
-                    files: [
-                        {
-                            cwd: 'src',
-                            expand: true,
-                            src: ['index.html'],
-                            dest: 'dist/bundle/'
-                        },
-                        {
-                            cwd: '.',
-                            expand: true,
-                            src: ['mock/responses/**/*.json'],
-                            dest: 'dist/bundle'
-                        }
-                    ]
-                }
+                ]
             },
 
-            htmlmin: {
-                release: {
-                    options: {
-                        removeComments: true,
-                        collapseWhitespace: true
+            release: {
+                files: [
+                    {
+                        cwd: 'src',
+                        expand: true,
+                        src: ['index.html'],
+                        dest: 'dist/bundle/'
                     },
-                    files: {
-                        'dist/bundle/index.html': 'dist/bundle/index.html'
+                    {
+                        cwd: 'dist/bundle/js',
+                        expand: true,
+                        src: ['*.js'],
+                        dest: 'dist/bundle/js'
+                    }
+                ],
+                options: {
+                    process: function(content, srcpath) {
+
+                        if (/\.js$/.test(srcpath)) {
+                            return content.replace(
+                            /(\w+)\.createClass\(\s*\{\s*displayName:\s*["'][A-Za-z]+["'],/g,
+                            '$1.createClass({');
+                        }
                     }
                 }
             },
 
-            eslint: {
-                source: {
-                    src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
-                },
-
-                tests: {
-                    src: ['src/js/{,*/}__tests__/*.{js,jsx}', 'mock/{,*/}*.js'],
-                    options: {
-                        globals: ['jest'],
-                        envs: ['jasmine', 'amd', 'node', 'browser']
+            server: {
+                files: [
+                    {
+                        cwd: 'src',
+                        expand: true,
+                        src: ['index.html'],
+                        dest: 'dist/bundle/'
+                    },
+                    {
+                        cwd: '.',
+                        expand: true,
+                        src: ['mock/responses/**/*.json'],
+                        dest: 'dist/bundle'
                     }
-                },
+                ]
+            }
+        },
 
-                scripts: {
-                    src: ['Gruntfile.js', 'build/{,*/}*.js']
-                }
-            },
-
-            jsonlint: {
-                cfgfiles: {
-                    src: [
-                        '.jscsrc',
-                        '.eslintrc',
-                        'src/{,*/}__tests__/.eslintrc',
-                        'build/**/*.json'
-                    ]
-                }
-            },
-
-            jest: {
+        htmlmin: {
+            release: {
                 options: {
-                    coverage: true,
-                    config: 'build/jest/config.json',
-                    testPathPattern: /.*-test\.jsx?/
-                }
-            },
-
-
-            webpack: {
-                dev: devBuildConfig,
-                build: prodBuildConfig
-            },
-
-
-            shell: {
-                options: {
-                    failOnError: true
+                    removeComments: true,
+                    collapseWhitespace: true
                 },
-                createGenDir: {
-                    command: 'mkdir -p ' + jestCacheDir
-                }
-
-            },
-
-            watch: {
-                html: {
-                    files: ['src/*.html'],
-                    tasks: ['copy:html']
+                files: {
+                    'dist/bundle/index.html': 'dist/bundle/index.html'
                 }
             }
+        },
 
+        eslint: {
+            source: {
+                src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
+            },
+
+            tests: {
+                src: ['src/js/{,*/}__tests__/*.{js,jsx}', 'mock/{,*/}*.js'],
+                options: {
+                    globals: ['jest'],
+                    envs: ['jasmine', 'amd', 'node', 'browser']
+                }
+            },
+
+            scripts: {
+                src: ['Gruntfile.js', 'build/{,*/}*.js']
+            }
+        },
+
+        jsonlint: {
+            cfgfiles: {
+                src: [
+                    '.jscsrc',
+                    '.eslintrc',
+                    'src/{,*/}__tests__/.eslintrc',
+                    'build/**/*.json'
+                ]
+            }
+        },
+
+        jest: {
+            options: {
+                coverage: true,
+                config: 'build/jest/config.json',
+                testPathPattern: /.*-test\.jsx?/
+            }
+        },
+
+
+        webpack: {
+            dev: devBuildConfig,
+            build: prodBuildConfig
+        },
+
+
+        shell: {
+            options: {
+                failOnError: true
+            },
+            createGenDir: {
+                command: 'mkdir -p ' + jestCacheDir
+            }
+
+        },
+
+        watch: {
+            html: {
+                files: ['src/*.html'],
+                tasks: ['copy:html']
+            }
         }
-    );
+
+    });
 
     grunt.registerTask('lint', [
         'jsonlint',
