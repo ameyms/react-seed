@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
+    grunt.loadTasks('./build/tasks');
     require('time-grunt')(grunt);
 
     var devServer = require('./build/webpack/dev-server'),
@@ -118,11 +119,25 @@ module.exports = function(grunt) {
             }
         },
 
-        jest: {
-            options: {
-                coverage: true,
-                config: 'build/jest/config.json',
-                testPathPattern: /.*-test\.jsx?/
+        jester: {
+            all: {
+                options: {
+                    coverage: true,
+                    config: 'build/jest/config.json',
+                    testPathPattern: /.*-test\.jsx?/,
+                    cacheDir: jestCacheDir
+                }
+            },
+
+            smoke: {
+                options: {
+                    coverage: true,
+                    config: 'build/jest/config.json',
+                    testPathPattern: /.*-test\.jsx?/,
+                    cacheDir: jestCacheDir,
+                    smoke: true,
+                    useCache: false
+                }
             }
         },
 
@@ -157,10 +172,16 @@ module.exports = function(grunt) {
         'eslint'
     ]);
 
+    grunt.registerTask('smoke', [
+        'lint',
+        'shell:createGenDir',
+        'jester:smoke'
+    ]);
+
     grunt.registerTask('test', [
         'lint',
         'shell:createGenDir',
-        'jest'
+        'jester:all'
     ]);
 
     grunt.registerTask('serve', 'Compile then start a connect web server',
