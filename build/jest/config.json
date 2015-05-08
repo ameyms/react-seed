@@ -1,16 +1,27 @@
 {
     "moduleFileExtensions": [ "js", "json", "jsx" ],
     "testFileExtensions": [ "js", "json", "jsx" ],
-    "testPathDirs": ["<rootDir>/src/js/", "<rootDir>/mock"],
+    "testPathDirs": ["<rootDir>/src/js"],
 
     "rootDir": "../../",
-    "cacheDirectory": "<rootDir>/.gen/jest",
+    "cacheDirectory": "<rootDir>/.gen/jester",
 
     "scriptPreprocessor": "<rootDir>/build/jest/module-preprocessor.js",
 
     "unmockedModulePathPatterns": [
+
+        "<rootDir>/src/js/commons/RouteUrlBuilder",
+        "<rootDir>/src/js/constants/*.js",
         "<rootDir>/node_modules/react",
-        "<rootDir>/node_modules/es6-promise"
+        "<rootDir>/node_modules/react/addons",
+        "<rootDir>/node_modules/backbone",
+        "<rootDir>/node_modules/object-assign",
+        "<rootDir>/node_modules/d3",
+        "<rootDir>/node_modules/classnames",
+        "<rootDir>/node_modules/es6-promise",
+        "<rootDir>/node_modules/flux",
+        "<rootDir>/node_modules/immutable",
+        "<rootDir>/node_modules/fixed-data-table"
     ],
 
     "collectCoverage": true
