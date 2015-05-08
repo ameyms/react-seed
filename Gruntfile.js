@@ -136,7 +136,7 @@ module.exports = function(grunt) {
                     testPathPattern: /.*-test\.jsx?/,
                     cacheDir: jestCacheDir,
                     smoke: true,
-                    useCache: false
+                    // useCache: false
                 }
             }
         },
