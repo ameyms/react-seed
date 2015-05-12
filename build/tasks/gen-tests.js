@@ -2,19 +2,50 @@ var path = require('path'),
     fs = require('fs'),
     chalk = require('chalk');
 
-
 module.exports = function(grunt) {
 
 
-    var listSrcPaths = function() {
-        var jsDir = path.join(process.cwd(), 'src/js'),
-            srcJsFileMatcher = /(.*)src\/js\/([a-z]+)\/([a-zA-Z]+)\.(jsx?)$/,
+    var srcJsFileMatcher = /(.*)src\/js\/(?:([a-z]+)\/)?([a-zA-Z]+)\.(jsx?)$/,
+        generateTests, isPathMatch;
+
+    isPathMatch = function(fpath, opts) {
+
+        var ignoreTest = opts.ignore;
+
+        if (srcJsFileMatcher.test(fpath)) {
+            if (ignoreTest) {
+                switch (grunt.util.kindOf(ignoreTest)) {
+                    case 'regexp':
+                        return !ignoreTest.test(fpath);
+
+                    case 'function':
+                        return !ignoreTest(fpath);
+                    default:
+                        return true;
+                }
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    };
+
+    generateTests = function() {
+
+        var opts = this.options(),
+            srcDir = opts.srcDir,
+            sampleTest = opts.sampleTest,
+            testEslintrc = opts.testEslintrc,
+            jsDir = path.join(process.cwd(), srcDir),
+            eslintrcFile = path.join(process.cwd(), testEslintrc),
+            dummyTestCode = grunt.file.read(path.join(process.cwd(), sampleTest)),
             created = 0;
 
+
         grunt.file.recurse(jsDir, function(fPath) {
-            var eslintrcFile = path.join(process.cwd(), 'build/jest/.eslintrc'),
-                tp, tdir, mdir, srcModule, dummyCode;
-            if (srcJsFileMatcher.test(fPath)) {
+            var tp, tdir, mdir, srcModule;
+            if (isPathMatch(fPath, opts)) {
 
                 tp = fPath.replace(srcJsFileMatcher, '$1src/js/$2/__tests__/$3-test.$4');
                 mdir = fPath.replace(srcJsFileMatcher, '$2');
@@ -22,8 +53,6 @@ module.exports = function(grunt) {
 
                 grunt.file.copy(eslintrcFile, tdir + '/.eslintrc');
                 srcModule = fPath.replace(srcJsFileMatcher, '$3');
-                dummyCode = grunt.file.read(path.join(process.cwd(), 'build/jest/Sample-test.jsx'));
-
 
                 if (!fs.existsSync(tp)) {
 
@@ -36,7 +65,7 @@ module.exports = function(grunt) {
                         chalk.gray('GenTest created new test module for ') +
                         chalk.white.bold(mdir + '.' + srcModule));
 
-                    grunt.file.write(tp, dummyCode.replace(/Dummy/g, srcModule), {encoding: 'utf8'});
+                    grunt.file.write(tp, dummyTestCode.replace(/Dummy/g, srcModule), {encoding: 'utf8'});
                     created++;
 
                 }}
@@ -52,9 +81,7 @@ module.exports = function(grunt) {
 
 
     grunt.registerMultiTask('genTests', 'Generate placeholder test files', function() {
-
-        // opts = this.options();
-        listSrcPaths();
+        generateTests.call(this);
 
     });
 
