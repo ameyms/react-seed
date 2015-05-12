@@ -90,6 +90,17 @@ module.exports = function(grunt) {
             }
         },
 
+        genTests: {
+            all: {
+                options: {
+                    srcDir: 'src/js',
+                    sampleTest: 'build/jest/Sample-test.jsx',
+                    testEslintrc: 'build/jest/.eslintrc',
+                    ignore: /.*src\/js\/((?:constants))\/[a-zA-Z]+\.jsx?/
+                }
+            }
+        },
+
         eslint: {
             source: {
                 src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
@@ -199,6 +210,7 @@ module.exports = function(grunt) {
     );
 
     grunt.registerTask('build', [
+        'genTests',
         'test',
         'clean:dist',
         'webpack:build',
