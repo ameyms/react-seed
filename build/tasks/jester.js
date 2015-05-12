@@ -3,6 +3,7 @@ var fs = require('fs'),
     chalk = require('chalk'),
     execSync = require('exec-sync'),
     md5 = require('MD5'),
+    deltaCollector = require('../scripts/delta-collector'),
     getDeltas;
 
 getDeltas = function(grunt, opts) {
@@ -37,7 +38,7 @@ getDeltas = function(grunt, opts) {
         }
     }
 
-    deltas = require(path.join(process.cwd(), 'build/scripts/delta-collector'))();
+    deltas = deltaCollector();
 
     if (useCache) {
         grunt.file.write(cachedGitStatusHashPath, gitStatusHash);
