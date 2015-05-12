@@ -38,9 +38,7 @@ App = React.createClass({
 
         return (
             <div>
-                <div className="header">
-                    <NavBar />
-                </div>
+                <NavBar />
                 <div className="container">
                     <div className="jumbotron">
                         <h1>{heading}</h1>
