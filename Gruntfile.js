@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 
         eslint: {
             source: {
-                src: ['src/js/{,*/}*.{js,jsx}', '!src/{,*/}__tests__/*.js']
+                src: ['src/js/{,*/}*.{js,jsx}', '!src/js/{,*/}__tests__/*.js']
             },
 
             tests: {
@@ -122,9 +122,8 @@ module.exports = function(grunt) {
         jsonlint: {
             cfgfiles: {
                 src: [
-                    '.jscsrc',
                     '.eslintrc',
-                    'src/{,*/}__tests__/.eslintrc',
+                    'src/js/{,*/}__tests__/.eslintrc',
                     'build/**/*.json'
                 ]
             }
