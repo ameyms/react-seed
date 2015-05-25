@@ -47,9 +47,9 @@ grunt test
 
 
 ## Roadmap
-* Adding sample routing logic
-* Add sample code for XHR along with response mocking in `grunt serve`
-* Add animation samples
+- [ ] Adding sample routing logic
+- [x] Add sample code for XHR along with response mocking in `grunt serve`
+- [ ] Add animation samples
 
 
 ## License
