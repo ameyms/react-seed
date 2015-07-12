@@ -1,11 +1,10 @@
 var webpack = require('webpack'),
     path = require('path'),
-    chalk = require('chalk'),
     commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js'),
     vendors = require('./vendors'),
     rootDir = path.resolve(__dirname, '../../');
 
-console.log(chalk.blue('Output path is now ' + rootDir + 'dist/bundle/js'));
+// console.log(chalk.blue('Output path is now ' + rootDir + 'dist/bundle/js'));
 
 module.exports = {
 
@@ -39,11 +38,8 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loaders: ['react-hot', 'jsx?harmony']
-            },
-            {
-                test: /\.js$/,
-                loaders: ['react-hot']
+                loaders: ['react-hot', 'babel'],
+                exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.svg$/,

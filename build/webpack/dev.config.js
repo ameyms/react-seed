@@ -1,6 +1,5 @@
 var webpack = require('webpack'),
     path = require('path'),
-    chalk = require('chalk'),
     vendors = require('./vendors'),
 
     devServerOpts = {
@@ -17,8 +16,6 @@ normalReplacePlugin = new webpack.NormalModuleReplacementPlugin(/ApiUrls\.js/,
 commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 hotReplacePlugin = new webpack.HotModuleReplacementPlugin();
 noErrorsPlugin = new webpack.NoErrorsPlugin();
-
-console.log(chalk.blue('Output path is now ' + rootDir + '/dist/bundle/js'));
 
 module.exports = {devserver: devServerOpts,
 
@@ -56,11 +53,8 @@ module.exports = {devserver: devServerOpts,
             },
             {
                 test: /\.jsx?$/,
-                loaders: ['react-hot', 'jsx?harmony']
-            },
-            {
-                test: /\.js$/,
-                loaders: ['react-hot']
+                loaders: ['react-hot', 'babel'],
+                exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.svg$/,
