@@ -1,11 +1,8 @@
-var React = require('react'),
-    NavBar;
+import React from 'react';
 
-NavBar = React.createClass({
+class NavBar extends React.Component {
 
-    displayName: 'NavBar',
-
-    render: function() {
+    render() {
         return (
             <nav className="navbar navbar-default navbar-static-top" role="navigation">
                 <div className="container">
@@ -32,7 +29,8 @@ NavBar = React.createClass({
             </nav>
         );
     }
+}
 
-});
+NavBar.displayName = 'NavBar';
 
-module.exports = NavBar;
+export default NavBar;

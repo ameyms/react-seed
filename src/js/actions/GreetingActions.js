@@ -1,14 +1,12 @@
-var AppDispatcher = require('../commons/AppDispatcher');
-var GreetingConstants = require('../constants/GreetingConstants');
+import AppDispatcher from '../commons/AppDispatcher';
+import * as GreetingConstants from '../constants/GreetingConstants';
 
-var GreetingActions = {
+export default {
 
-    greet: function(greetingText) {
+    greet(greetingText) {
         AppDispatcher.dispatch({
             actionType: GreetingConstants.GREET,
-            greetingText: greetingText
+            greetingText
         });
     }
 };
-
-module.exports = GreetingActions;

@@ -1,3 +1,1 @@
-module.exports = {
-    GREET: 'GREET'
-};
+export const GREET = 'GREET';

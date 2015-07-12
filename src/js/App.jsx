@@ -1,38 +1,41 @@
-var React = require('react');
-var Greeter = require('./components/Greeter');
-var NavBar = require('./components/NavBar');
-var GreetingStore = require('./stores/GreetingStore');
-var App;
+import React from 'react';
+import Greeter from './components/Greeter';
+import NavBar from './components/NavBar';
+import GreetingStore from './stores/GreetingStore';
 
-require('styles/main.less');
+import 'styles/main.less';
 
-App = React.createClass({
+class App extends React.Component {
 
-    displayName: 'App',
-
-    getInitialState: function() {
-        return {
+    constructor() {
+        super();
+        this.state = {
             viewReady: false,
             dataReady: false,
             heading: GreetingStore.getCurrentGreeting()
         };
-    },
 
-    _onNewGreeting: function() {
+        this._onNewGreeting = this._onNewGreeting.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.componentDidUnmount = this.componentDidUnmount.bind(this);
+        this.render = this.render.bind(this);
+    }
+
+    _onNewGreeting() {
         this.setState({
             heading: GreetingStore.getCurrentGreeting()
         });
-    },
+    }
 
-    componentDidMount: function() {
+    componentDidMount() {
         GreetingStore.addChangeListener(this._onNewGreeting);
-    },
+    }
 
-    componentDidUnmount: function() {
+    componentDidUnmount() {
         GreetingStore.removeChangeListener(this._onNewGreeting);
-    },
+    }
 
-    render: function() {
+    render() {
 
         var heading = this.state.heading + ', React';
 
@@ -50,6 +53,8 @@ App = React.createClass({
             </div>
         );
     }
-});
+}
 
-module.exports = App;
+App.displayName = 'App';
+
+export default App;

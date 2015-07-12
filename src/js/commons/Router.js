@@ -1,27 +1,24 @@
-var Backbone = require('backbone'),
-    AppRouter, routerInstance;
+import Backbone from 'backbone';
 
-AppRouter = Backbone.Router.extend({
+const AppRouter = Backbone.Router.extend({
 
     routes: {
         '': 'index',
         'pool/new': 'addPool'
     },
 
-    index: function() {
+    index: () => {
         console.log('index');
     },
 
-    addPool: function() {
+    addPool: () => {
 
     }
 });
 
-module.exports = {
-    init: function() {
-        routerInstance = new AppRouter();
-        Backbone.history.start();
+export function init() {
+    let routerInstance = new AppRouter();
+    Backbone.history.start();
 
-        return routerInstance;
-    }
-};
+    return routerInstance;
+}

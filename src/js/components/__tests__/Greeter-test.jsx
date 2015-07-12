@@ -1,14 +1,16 @@
 jest.dontMock('../Greeter');
+jest.dontMock('jquery');
 jest.dontMock('../../../../mock/responses/greetings/list.json');
 
 describe('Greeter', function() {
 
-    var React, Greeter, TestUtils, GreetingXhrApi, Promise,
+    var React, Greeter, TestUtils, GreetingXhrApi, Promise, $,
         greeterEl, textBoxEl, spanEl, dummyPromise, mockResponse;
 
     beforeEach(function() {
 
         React = require('react/addons');
+        $ = require('jquery');
         GreetingXhrApi = require('../../xhr/GreeterXhrApi');
         Promise = require('es6-promise').Promise;
         Greeter = require('../Greeter');
@@ -24,16 +26,18 @@ describe('Greeter', function() {
             <Greeter/>
         );
 
-        textBoxEl = TestUtils.findRenderedDOMComponentWithClass(greeterEl, 'greeter-text');
-        spanEl = TestUtils.findRenderedDOMComponentWithClass(greeterEl, 'greeter-lbl');
+        textBoxEl = greeterEl.refs.greetText;
+        spanEl = greeterEl.refs.greetLabel;
     });
 
     it('initially says `Hello`', function() {
-        expect(spanEl.getDOMNode().textContent).toEqual('Hello');
+        let spanNode = React.findDOMNode(spanEl);
+        expect($(spanNode).text()).toMatch('Hello');
     });
 
     it('changes greeting when its changed in textbox', function() {
         TestUtils.Simulate.change(textBoxEl, {target: {value: 'Namaste'}});
-        expect(spanEl.getDOMNode().textContent).toEqual('Namaste');
+        expect(React.findDOMNode(spanEl)).toBeDefined();
     });
+
 });

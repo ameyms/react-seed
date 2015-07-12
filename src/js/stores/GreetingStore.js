@@ -1,37 +1,42 @@
-var AppDispatcher = require('../commons/AppDispatcher');
-var EventEmitter = require('events').EventEmitter;
-var GreetingConstants = require('../constants/GreetingConstants');
-var assign = require('object-assign');
-var CHANGE_EVENT = 'CHANGE_EVENT';
-var _currentGreeting = 'Hello';
+/* @flow */
 
-var GreetingStore = assign({}, EventEmitter.prototype, {
+import AppDispatcher from '../commons/AppDispatcher';
+import {EventEmitter} from 'events';
+import * as GreetingConstants from '../constants/GreetingConstants';
 
-    getCurrentGreeting: function() {
+const CHANGE_EVENT = 'CHANGE_EVENT';
+let _currentGreeting = 'Hello';
+
+class GreetingStore extends EventEmitter {
+
+    getCurrentGreeting() {
         return _currentGreeting;
-    },
+    }
 
-    emitChange: function() {
+    emitChange() {
         this.emit(CHANGE_EVENT);
-    },
+    }
 
-    addChangeListener: function(callback) {
+    addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
-    },
+    }
 
-    removeChangeListener: function(callback) {
+    removeChangeListener(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     }
-});
+}
+
+const instance = new GreetingStore();
 
 AppDispatcher.register(function(action) {
 
     switch (action.actionType) {
         case GreetingConstants.GREET:
             _currentGreeting = action.greetingText;
-            GreetingStore.emitChange();
+            instance.emitChange();
             break;
     }
 });
 
-module.exports = GreetingStore;
+
+export default instance;

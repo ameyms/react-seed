@@ -1,60 +1,64 @@
-require('styles/components/Greeter.less');
+import 'styles/components/Greeter.less';
 
-var React = require('react');
-var GreetingActions = require('../actions/GreetingActions');
-var GreetingXhrApi = require('../xhr/GreeterXhrApi');
+import React from 'react';
+import GreetingActions from '../actions/GreetingActions';
+import GreetingXhrApi from '../xhr/GreeterXhrApi';
 
-var Greeter = React.createClass({
+class Greeter extends React.Component {
 
-    displayName: 'Greeter',
-
-    getInitialState: function() {
-        return {
+    constructor() {
+        super();
+        this.state = {
             greeting: 'Hello'
         };
-    },
 
-    componentDidMount: function() {
+        this.render = this.render.bind(this);
+        this.handleGreetingFetch = this.handleGreetingFetch.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+    }
+
+    componentDidMount() {
         GreetingXhrApi.list().then(this.handleGreetingFetch);
-    },
+    }
 
-    handleGreetingFetch: function(data) {
+    handleGreetingFetch(data) {
         this.setState({list: data.data.list});
-    },
+    }
 
-    handleChange: function(event) {
+    handleChange(event) {
         this.setState({greeting: event.target.value});
-    },
+    }
 
-    handleClick: function() {
+    handleClick() {
+        event.preventDefault();
         GreetingActions.greet(this.state.greeting);
-    },
+    }
 
-    render: function() {
+    render() {
 
-        var greetingUl = [],
-            i, len;
-
+        let greetingUl = [];
         if (this.state.list) {
-            len = this.state.list.length;
-            for (i = 0; i < len; i++) {
-                greetingUl.push(
-                    <li key={i}>
-                        {this.state.list[i]}
-                    </li>
+            greetingUl = this.state.list.map((d, i) => {
+                return (
+                    <li key={i}>{d}</li>
                 );
-            }
+            });
         }
+
         return (
-            <form className={'greeter'}>
+            <form className="greeter">
                 <div className="form-group">
 
-                    <input type="text"
+                    <input type="text" ref="greetText"
                         className="form-control greeter-text input input-lg"
                         onChange={this.handleChange} value={this.state.greeting} />
                 </div>
                 <div className="form-group clear-fix">
-                    <label className="text-success greeter-lbl">{this.state.greeting}</label>
+                    <label ref="greetLabel" className="text-success greeter-lbl">
+                        {this.state.greeting}
+                    </label>
                     <button className="btn btn-success btn-lg pull-right greeter-btn"
                         onClick={this.handleClick}>
                         Say it
@@ -66,7 +70,7 @@ var Greeter = React.createClass({
             </form>
         );
     }
+}
 
-});
-
-module.exports = Greeter;
+Greeter.displayName = 'Greeter';
+export default Greeter;

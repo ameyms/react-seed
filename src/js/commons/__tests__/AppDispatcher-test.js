@@ -10,7 +10,7 @@ describe('AppDispatcher', function() {
     var AppDispatcher;
 
     beforeEach(function() {
-        AppDispatcher = require('../AppDispatcher.js');
+        AppDispatcher = require('../AppDispatcher');
     });
 
     it('sends actions to subscribers', function() {

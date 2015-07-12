@@ -1,12 +1,17 @@
-var $ = require('jquery');
-var ApiUrls = require('../commons/ApiUrls');
+/* @flow */
 
-module.exports = {
-    list: function() {
+import $ from 'jquery';
+import makeApiRequest from '../commons/ApiUrls';
+
+
+var GreeterXhrApi = {
+    list: () => {
 
         return $.ajax({
-            url: ApiUrls.get('greeting.list')
+            url: makeApiRequest('greeting.list')
         });
 
     }
 };
+
+export default GreeterXhrApi;
