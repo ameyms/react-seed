@@ -101,6 +101,10 @@ module.exports = function(grunt) {
             }
         },
 
+        flow: {
+            options: {}
+        },
+
         eslint: {
             source: {
                 src: ['src/js/{,*/}*.{js,jsx}', '!src/js/{,*/}__tests__/*.js']
@@ -115,7 +119,10 @@ module.exports = function(grunt) {
             },
 
             scripts: {
-                src: ['Gruntfile.js', 'build/{,*/}*.js']
+                src: ['Gruntfile.js', 'build/{,*/}*.js'],
+                options: {
+                    configFile: 'build/.eslintrc'
+                }
             }
         },
 
