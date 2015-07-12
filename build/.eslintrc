@@ -1,0 +1,65 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+
+    "rules": {
+        "no-mixed-requires": [0, false],
+        "strict": [1, "never"],
+        "curly": 1,
+        "no-bitwise": 1,
+        "max-len": [1, 110, 4],
+        "vars-on-top": 0,
+        "guard-for-in": 1,
+        "no-underscore-dangle": 0,
+
+        "babel/object-shorthand": 0,
+        "babel/generator-star": 0,
+        "babel/generator-star-spacing": 0,
+
+        "no-loop-func": 2,
+        "no-multi-spaces": 1,
+
+        "comma-dangle": "never",
+        "indent": [2, 4],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "no-space-before-semi": 2,
+
+        "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+        "key-spacing": [2,
+            {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        ],
+
+        "new-cap": "newIsCap",
+
+        "space-after-keywords": [1, "always"],
+        "space-before-blocks": [1, "always"],
+        "space-in-parens": [1, "never"],
+        "space-before-function-paren": [1, "never"],
+        "space-infix-ops": [2, {"int32Hint": false}],
+        "space-return-throw-case": 2,
+        "max-nested-callbacks": [2, 3],
+        "one-var": [0, "always"],
+
+        "eol-last": 2
+    },
+
+    "ecmaFeatures": {
+
+    },
+
+    "plugins": [
+        "react",
+        "babel"
+    ],
+
+    "globals": {
+    }
+}

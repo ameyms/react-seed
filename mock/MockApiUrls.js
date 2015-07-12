@@ -1,11 +1,9 @@
-var URL_BASE = '/mock/responses/';
+const URL_BASE = '/mock/responses/';
 
-var MANIFEST = {
+const MANIFEST = {
     'greeting.list': 'greetings/list.json'
 };
 
-module.exports = {
-    get: function(endpoint) {
-        return URL_BASE + MANIFEST[endpoint];
-    }
-};
+export default function get(endpoint) {
+    return URL_BASE + MANIFEST[endpoint];
+}
