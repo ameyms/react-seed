@@ -1,10 +1,10 @@
 import 'styles/components/Greeter.less';
 
-import React from 'react';
+import React, {Component} from 'react';
 import GreetingActions from '../actions/GreetingActions';
 import GreetingXhrApi from '../xhr/GreeterXhrApi';
 
-class Greeter extends React.Component {
+class Greeter extends Component {
 
     constructor() {
         super();
