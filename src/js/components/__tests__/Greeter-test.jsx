@@ -1,16 +1,14 @@
 jest.dontMock('../Greeter');
-jest.dontMock('jquery');
 jest.dontMock('../../../../mock/responses/greetings/list.json');
 
 describe('Greeter', function() {
 
-    var React, Greeter, TestUtils, GreetingXhrApi, Promise, $,
+    var React, Greeter, TestUtils, GreetingXhrApi, Promise,
         greeterEl, textBoxEl, spanEl, dummyPromise, mockResponse;
 
     beforeEach(function() {
 
         React = require('react/addons');
-        $ = require('jquery');
         GreetingXhrApi = require('../../xhr/GreeterXhrApi');
         Promise = require('es6-promise').Promise;
         Greeter = require('../Greeter');
@@ -20,7 +18,9 @@ describe('Greeter', function() {
         dummyPromise = new Promise(function(resolve) {
             resolve(mockResponse);
         });
-        GreetingXhrApi.list.mockReturnValue(dummyPromise);
+        GreetingXhrApi.list.mockImplementation(() => {
+            return dummyPromise;
+        });
 
         greeterEl = TestUtils.renderIntoDocument(
             <Greeter/>
@@ -32,7 +32,7 @@ describe('Greeter', function() {
 
     it('initially says `Hello`', function() {
         let spanNode = React.findDOMNode(spanEl);
-        expect($(spanNode).text()).toMatch('Hello');
+        expect(spanNode.textContent).toMatch('Hello');
     });
 
     it('changes greeting when its changed in textbox', function() {

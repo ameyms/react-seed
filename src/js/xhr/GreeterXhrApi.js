@@ -1,7 +1,5 @@
-/* @flow */
-
-import $ from 'jquery';
-import makeApiRequest from '../commons/ApiUrls';
+var $ = require('jquery');
+var makeApiRequest = require('../commons/ApiUrls');
 
 
 var GreeterXhrApi = {
@@ -10,7 +8,6 @@ var GreeterXhrApi = {
         return $.ajax({
             url: makeApiRequest('greeting.list')
         });
-
     }
 };
 
