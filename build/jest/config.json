@@ -7,7 +7,14 @@
     "cacheDirectory": "<rootDir>/.gen/jester",
 
     "scriptPreprocessor": "<rootDir>/build/jest/module-preprocessor.js",
-
+    "testPathIgnorePatterns": [
+        "/node_modules/",
+        "/build/",
+        "/styles/",
+        "/dist/",
+        "/mock/",
+        "/coverage/"
+    ],
     "unmockedModulePathPatterns": [
 
         "<rootDir>/src/js/commons/RouteUrlBuilder",
