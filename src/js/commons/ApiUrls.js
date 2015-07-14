@@ -1,7 +1,7 @@
 const API_BASE = '/api/v1';
 
-let MANIFEST = {
-    'greeting.list'() {
+var MANIFEST = {
+    'greeting.list': () => {
         return 'greetings';
     }
 };
