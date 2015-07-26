@@ -33,7 +33,7 @@ initDependencyGraph = function() {
         if (srcJsFileMatcher.test(fpath)) {
             fileContents = traverse.readFile(fpath);
 
-            requireMatcher = /require\(\s*'(\.{1,2})\/([a-z]+\/)?([a-zA-Z]+)'\s*\)/g;
+            requireMatcher = /import\s+.+\s+from\s+'(\.{1,2})\/([a-z]+\/)?([a-zA-Z]+)'/g;
 
             while ((mx = requireMatcher.exec(fileContents)) !== null) {
 
