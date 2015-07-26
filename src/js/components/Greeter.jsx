@@ -1,7 +1,7 @@
 import 'styles/components/Greeter.less';
 
 import React, {Component} from 'react';
-import GreetingActions from '../actions/GreetingActions';
+import {greet} from '../actions/GreetingActions';
 import GreetingXhrApi from '../xhr/GreeterXhrApi';
 
 class Greeter extends Component {
@@ -12,11 +12,9 @@ class Greeter extends Component {
             greeting: 'Hello'
         };
 
-        this.render = this.render.bind(this);
         this.handleGreetingFetch = this.handleGreetingFetch.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
     }
 
     componentDidMount() {
@@ -33,7 +31,7 @@ class Greeter extends Component {
 
     handleClick() {
         event.preventDefault();
-        GreetingActions.greet(this.state.greeting);
+        greet(this.state.greeting);
     }
 
     render() {
