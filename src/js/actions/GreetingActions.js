@@ -1,12 +1,9 @@
 import AppDispatcher from '../commons/AppDispatcher';
-import * as GreetingConstants from '../constants/GreetingConstants';
+import {SEND_GREET} from '../constants/GreetingConstants';
 
-export default {
-
-    greet(greetingText) {
-        AppDispatcher.dispatch({
-            actionType: GreetingConstants.GREET,
-            greetingText
-        });
-    }
-};
+export function greet(greetingText) {
+    AppDispatcher.dispatch({
+        actionType: SEND_GREET,
+        greetingText
+    });
+}
