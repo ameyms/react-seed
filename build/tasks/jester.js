@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                     grunt.log.writeln('\n' + chalk.bgBlue.bold(' INFO ') + '  ' +
                         chalk.gray('Jest breaks if there is only one test file. ') +
                         chalk.white.bold('Executing 2 tests...\n'));
-                    config.testPathIgnorePatterns = ignorePatterns.slice(0, ignorePatterns.length -1);
+                    config.testPathIgnorePatterns = ignorePatterns.slice(0, ignorePatterns.length - 1);
                 } else {
 
                     totalRuns = changeSet.length;
