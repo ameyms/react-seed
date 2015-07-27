@@ -2,8 +2,8 @@
     "parser": "babel-eslint",
     "env": {
         "browser": true,
-        "node": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
 
     "rules": {
@@ -38,7 +38,7 @@
 
         "no-loop-func": 2,
         "no-multi-spaces": 1,
-
+        "no-console": 0,
         "comma-dangle": "never",
         "indent": [2, 4],
         "quotes": [2, "single"],
@@ -99,5 +99,6 @@
     ],
 
     "globals": {
+        "require": true
     }
 }
