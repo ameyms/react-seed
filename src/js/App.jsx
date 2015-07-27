@@ -37,7 +37,7 @@ class App extends React.Component {
 
     render() {
 
-        var heading = this.state.heading + ', React';
+        var heading = `${this.state.heading}, React`;
 
         return (
             <div>
