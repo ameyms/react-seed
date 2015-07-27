@@ -8,7 +8,7 @@
     },
     "globals": {
         "jest": true,
-        "beforeEach": true
+        "pit": true
     },
 
     "plugins": [
