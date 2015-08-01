@@ -2,7 +2,7 @@ var fs = require('fs'),
     path = require('path'),
     chalk = require('chalk'),
     execSync = require('exec-sync'),
-    md5 = require('MD5'),
+    md5 = require('md5'),
     deltaCollector = require('../scripts/delta-collector'),
     getDeltas;
 
@@ -99,6 +99,7 @@ module.exports = function(grunt) {
         if (foundTests) {
 
             midTime = Date.now();
+
             require('jest-cli').runCLI(opts, process.cwd(), function() {
 
                 done();
