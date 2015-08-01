@@ -1,3 +1,5 @@
+/* eslint-disable babel/object-shorthand */
+
 module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
@@ -216,7 +218,7 @@ module.exports = function(grunt) {
     );
 
     grunt.registerTask('build', [
-        'genTests',
+        // 'genTests',
         'test',
         'clean:dist',
         'webpack:build',
