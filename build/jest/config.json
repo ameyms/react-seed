@@ -6,7 +6,7 @@
     "rootDir": "../../",
     "cacheDirectory": "<rootDir>/.gen/jester",
 
-    "scriptPreprocessor": "<rootDir>/build/jest/module-preprocessor.js",
+    "scriptPreprocessor": "<rootDir>/build/jest/module-preprocessor",
     "testPathIgnorePatterns": [
         "/node_modules/",
         "/build/",
