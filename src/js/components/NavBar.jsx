@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class NavBar extends React.Component {
+class NavBar extends Component {
 
     render() {
         return (

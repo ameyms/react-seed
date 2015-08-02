@@ -4,7 +4,7 @@ import AppDispatcher from '../commons/AppDispatcher';
 import {EventEmitter} from 'events';
 import {SEND_GREET} from '../constants/GreetingConstants';
 
-const CHANGE_EVENT = 'CHANGE_EVENT';
+let CHANGE_EVENT = 'CHANGE_EVENT';
 let _currentGreeting = 'Hello';
 
 class GreetingStore extends EventEmitter {
@@ -27,8 +27,9 @@ class GreetingStore extends EventEmitter {
 }
 
 const instance = new GreetingStore();
+export default instance;
 
-AppDispatcher.register(function(action) {
+AppDispatcher.register(action => {
 
     switch (action.actionType) {
         case SEND_GREET:
@@ -37,6 +38,3 @@ AppDispatcher.register(function(action) {
             break;
     }
 });
-
-
-export default instance;

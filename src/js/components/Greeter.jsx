@@ -1,10 +1,10 @@
 import 'styles/components/Greeter.less';
 
-import React, {Component} from 'react';
+import React, {Component} from 'react/addons';
 import {greet} from '../actions/GreetingActions';
-import GreetingXhrApi from '../xhr/GreeterXhrApi';
+import {list} from '../xhr/GreeterXhrApi';
 
-class Greeter extends Component {
+export default class Greeter extends Component {
 
     constructor() {
         super();
@@ -15,10 +15,11 @@ class Greeter extends Component {
         this.handleGreetingFetch = this.handleGreetingFetch.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.updateGreeting = this.updateGreeting.bind(this);
     }
 
     componentDidMount() {
-        GreetingXhrApi.list().then(this.handleGreetingFetch);
+        list().then(this.handleGreetingFetch);
     }
 
     handleGreetingFetch(data) {
@@ -29,20 +30,27 @@ class Greeter extends Component {
         this.setState({greeting: event.target.value});
     }
 
-    handleClick() {
+    handleClick(event) {
         event.preventDefault();
         greet(this.state.greeting);
+    }
+
+    updateGreeting(greetText) {
+        this.setState({greeting: greetText});
     }
 
     render() {
 
         let greetingUl = [];
         if (this.state.list) {
-            greetingUl = this.state.list.map((d, i) => {
-                return (
-                    <li key={i}>{d}</li>
-                );
-            });
+            greetingUl = this.state.list.map((d, i) =>
+                <li className="greet-item" key={i}>
+                    <a href="#" className="is-link"
+                        onClick={this.updateGreeting.bind(this, d)}>
+                        {d}
+                    </a>
+                </li>
+            );
         }
 
         return (
@@ -58,7 +66,7 @@ class Greeter extends Component {
                         {this.state.greeting}
                     </label>
                     <button className="btn btn-success btn-lg pull-right greeter-btn"
-                        onClick={this.handleClick}>
+                        ref="greetBtn" onClick={this.handleClick}>
                         Say it
                     </button>
                 </div>
@@ -71,4 +79,3 @@ class Greeter extends Component {
 }
 
 Greeter.displayName = 'Greeter';
-export default Greeter;

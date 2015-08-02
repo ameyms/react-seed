@@ -37,14 +37,14 @@ class App extends React.Component {
 
     render() {
 
-        var heading = `${this.state.heading}, React`;
+        let heading = `${this.state.heading}, React`;
 
         return (
             <div>
                 <NavBar />
                 <div className="container">
                     <div className="jumbotron">
-                        <h1>{heading}</h1>
+                        <h1 ref="heroText">{heading}</h1>
                     </div>
                     <div className="col-lg-12">
                         <Greeter/>
