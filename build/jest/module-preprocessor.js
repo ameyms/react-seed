@@ -11,8 +11,8 @@ module.exports = {
 
         if (jsPath.test(filename)) {
 
-            src = src.replace(/^.*require\(\s*'styles\/\w+\/\w+\.less'\s*\);/g, '');
-            src = src.replace(/^\s*import\s+'styles\/\w+\/\w+\.less'\s*;/g, '');
+            src = src.replace(/^.*require\(\s*'styles(?:\/\w+)?\/\w+\.less'\s*\);/g, '');
+            src = src.replace(/^\s*import\s+'styles(?:\/\w+)?\/\w+\.less'\s*;/g, '');
 
             return babel.process(src, filename);
         } else if (lessPath.test(filename)) {
