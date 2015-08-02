@@ -1,4 +1,6 @@
 {
+    "parser": "babel-eslint",
+
     "env": {
         "browser": true,
         "node": true,
@@ -6,6 +8,12 @@
     },
     "globals": {
         "jest": true,
+        "pit": true,
         "beforeEach": true
-    }
+    },
+
+    "plugins": [
+        "react",
+        "babel"
+    ]
 }
