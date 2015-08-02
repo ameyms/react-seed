@@ -1,0 +1,18 @@
+{
+    "parser": "babel-eslint",
+
+    "env": {
+        "browser": true,
+        "node": true,
+        "jasmine": true
+    },
+    "globals": {
+        "jest": true,
+        "beforeEach": true
+    },
+
+    "plugins": [
+        "react",
+        "babel"
+    ]
+}
