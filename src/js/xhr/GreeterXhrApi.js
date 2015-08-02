@@ -1,14 +1,9 @@
-var $ = require('jquery');
-var makeApiRequest = require('../commons/ApiUrls');
+import makeApiRequest from '../commons/ApiUrls';
+import * as $ from 'jquery';
 
+export function list() {
 
-var GreeterXhrApi = {
-    list: () => {
-
-        return $.ajax({
-            url: makeApiRequest('greeting.list')
-        });
-    }
-};
-
-export default GreeterXhrApi;
+    return $.ajax({
+        url: makeApiRequest('greeting.list')
+    });
+}
