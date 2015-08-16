@@ -157,7 +157,7 @@ module.exports = function(grunt) {
                     config: 'build/jest/config.json',
                     testPathPattern: /.*-test\.jsx?/,
                     cacheDir: jestCacheDir,
-                    smoke: true,
+                    smoke: true
                     // useCache: false
                 }
             }

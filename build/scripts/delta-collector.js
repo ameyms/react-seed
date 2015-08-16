@@ -92,7 +92,6 @@ listAllTests = function() {
     return allTests;
 };
 
-
 listUnchanged = function(changeSet) {
     var changed = Immutable.Set(changeSet),
         all = Immutable.Set(listAllTests()),

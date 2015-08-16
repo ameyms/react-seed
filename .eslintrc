@@ -39,11 +39,11 @@
         "no-loop-func": 2,
         "no-multi-spaces": 1,
         "no-console": 0,
-        "comma-dangle": "never",
+        "comma-dangle": [2, "never"],
         "indent": [2, 4],
         "quotes": [2, "single"],
         "semi": [2, "always"],
-        "no-space-before-semi": 2,
+        "semi-spacing": [2, {"before": false, "after": true}],
 
         "brace-style": [2, "1tbs", { "allowSingleLine": true }],
         "key-spacing": [2,
@@ -53,7 +53,11 @@
             }
         ],
 
-        "new-cap": "newIsCap",
+        "new-cap": [1, {
+            "newIsCap": true,
+            "capIsNew": false,
+            "newIsCapExceptions": []
+        }],
 
         "space-after-keywords": [1, "always"],
         "space-before-blocks": [1, "always"],

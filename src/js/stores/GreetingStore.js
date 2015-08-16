@@ -32,9 +32,9 @@ export default instance;
 AppDispatcher.register(action => {
 
     switch (action.actionType) {
-        case SEND_GREET:
-            _currentGreeting = action.greetingText;
-            instance.emitChange();
-            break;
+    case SEND_GREET:
+        _currentGreeting = action.greetingText;
+        instance.emitChange();
+        break;
     }
 });

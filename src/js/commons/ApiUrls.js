@@ -7,6 +7,7 @@ var MANIFEST = {
 };
 
 export default function(endpoint) {
-    var args = Array.prototype.slice.call(arguments, 1, arguments.length);
-    return API_BASE + MANIFEST[endpoint].apply(MANIFEST, args);
+    let args = Array.prototype.slice.call(arguments, 1, arguments.length);
+    let relUri = MANIFEST[endpoint].apply(MANIFEST, args);
+    return `${API_BASE}/${relUri}`;
 }

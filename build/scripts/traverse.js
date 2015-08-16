@@ -12,7 +12,8 @@ unixifyPath = function(filepath) {
         return filepath.replace(/\\/g, '/');
     } else {
         return filepath;
-    }};
+    }
+};
 
 recurse = function recurse(rootdir, callback, subdir) {
     var abspath = subdir ? path.join(rootdir, subdir) : rootdir;
@@ -22,12 +23,9 @@ recurse = function recurse(rootdir, callback, subdir) {
             recurse(rootdir, callback, unixifyPath(path.join(subdir || '', filename || '')));
         } else {
             callback(unixifyPath(filepath), rootdir, subdir, filename);
-        }}
-
-    );
+        }
+    });
 };
-
-
 
 // Read a file, return its contents.
 read = function read(filepath, options) {
@@ -44,13 +42,14 @@ read = function read(filepath, options) {
             // Strip any BOM that might exist.
             if (!preserveBOM && contents.charCodeAt(0) === 0xFEFF) {
                 contents = contents.substring(1);
-            }}
+            }
+        }
         return contents;
-
     } catch (e) {
 
         throw e;
-    }};
+    }
+};
 
 module.exports = {
     recurse: recurse,
