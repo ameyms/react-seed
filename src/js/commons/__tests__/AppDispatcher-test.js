@@ -16,7 +16,7 @@ describe('AppDispatcher', function() {
     it('sends actions to subscribers', function() {
 
         var listener = jest.genMockFunction(),
-        payload = {};
+            payload = {};
 
         AppDispatcher.register(listener);
         AppDispatcher.dispatch(payload);
@@ -27,11 +27,11 @@ describe('AppDispatcher', function() {
     it('waits with chained dependencies properly', function() {
 
         var payload = {},
-        listener1Done = false,
-        listener2Done = false,
-        listener3Done = false,
-        listener4Done = false,
-        index2, index3, index4, listener1, listener2, listener3, listener4;
+            listener1Done = false,
+            listener2Done = false,
+            listener3Done = false,
+            listener4Done = false,
+            index2, index3, index4, listener1, listener2, listener3, listener4;
 
         listener1 = function() {
             AppDispatcher.waitFor([index2, index4]);

@@ -7,8 +7,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     var devServer = require('./build/webpack/dev-server'),
-        devBuildConfig = require('./build/webpack/dev.config'),
-        prodBuildConfig = require('./build/webpack/dev.config'),
+        prodBuild = require('./build/webpack/prod.config'),
         jestConfig = grunt.file.readJSON('./build/jest/config.json'),
         jestCacheDir = jestConfig.cacheDirectory.replace(/<rootDir>\//, '');
 
@@ -158,7 +157,7 @@ module.exports = function(grunt) {
                     config: 'build/jest/config.json',
                     testPathPattern: /.*-test\.jsx?/,
                     cacheDir: jestCacheDir,
-                    smoke: true,
+                    smoke: true
                     // useCache: false
                 }
             }
@@ -166,8 +165,7 @@ module.exports = function(grunt) {
 
 
         webpack: {
-            dev: devBuildConfig,
-            build: prodBuildConfig
+            build: prodBuild.getConfig()
         },
 
 
