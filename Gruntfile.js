@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     var devServer = require('./build/webpack/dev-server'),
-        prodBuildConfig = require('./build/webpack/dev.config'),
+        prodBuildConfig = require('./build/webpack/prod.config'),
         jestConfig = grunt.file.readJSON('./build/jest/config.json'),
         jestCacheDir = jestConfig.cacheDirectory.replace(/<rootDir>\//, '');
 

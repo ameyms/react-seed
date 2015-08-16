@@ -17,7 +17,9 @@ commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 hotReplacePlugin = new webpack.HotModuleReplacementPlugin();
 noErrorsPlugin = new webpack.NoErrorsPlugin();
 
-module.exports = {devserver: devServerOpts,
+module.exports = {
+
+    devserver: devServerOpts,
 
     entry: {
         main: [
