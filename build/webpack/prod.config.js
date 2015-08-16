@@ -39,6 +39,9 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel',
+                include: [
+                    path.resolve(__dirname, '../../src/js')
+                ],
                 exclude: /(node_modules|bower_components)/
             },
             {
