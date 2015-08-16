@@ -34,7 +34,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'autoprefixer', 'less']
+                loaders: ['style', 'css', 'less']
             },
             {
                 test: /\.jsx?$/,

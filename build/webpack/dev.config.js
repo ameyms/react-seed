@@ -49,7 +49,7 @@ module.exports = {devserver: devServerOpts,
         loaders: [
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'autoprefixer', 'less']
+                loaders: ['style', 'css', 'less']
             },
             {
                 test: /\.jsx?$/,
