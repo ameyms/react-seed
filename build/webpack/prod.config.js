@@ -38,7 +38,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loaders: ['babel'],
+                loader: 'babel',
                 exclude: /(node_modules|bower_components)/
             },
             {
