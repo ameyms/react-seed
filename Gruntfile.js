@@ -18,7 +18,11 @@ module.exports = function(grunt) {
 
         clean: {
             dist: {
-                src: ['dist/*']
+                src: [
+                    'dist/*',
+                    '.gen',
+                    'coverage'
+                ]
             }
         },
 
@@ -219,15 +223,15 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         // 'genTests',
-        'test',
         'clean:dist',
+        'test',
         'webpack:build',
         'copy:build'
     ]);
 
     grunt.registerTask('release', [
-        'test',
         'clean:dist',
+        'test',
         'webpack:build',
         'copy:release',
         'htmlmin'
