@@ -28,7 +28,7 @@ module.exports = {
                 return;
             }
 
-            opn('localhost:' + config.devserver.port, function() {
+            opn('http://localhost:' + config.devserver.port, function() {
                 console.log(chalk.white('Listening at',
                     chalk.black.bgWhite('localhost:' + config.devserver.port)));
             });

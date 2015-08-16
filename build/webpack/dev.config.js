@@ -56,9 +56,6 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loaders: ['react-hot', 'babel'],
-                include: [
-                    path.resolve(__dirname, '../../src/js')
-                ],
                 exclude: /(node_modules|bower_components)/
             },
             {
@@ -79,7 +76,7 @@ module.exports = {
     resolve: {
         root: rootDir,
         modulesDirectories: ['src/js', 'node_modules'],
-        extensions: ['', '.js', '.json', '.jsx', '.less'],
+        extensions: ['.js', '.json', '.jsx', '.less'],
         alias: {styles: 'src/styles'}
     },
 
