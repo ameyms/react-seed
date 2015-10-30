@@ -21,11 +21,6 @@ class App extends React.Component {
         this.render = this.render.bind(this);
     }
 
-    _onNewGreeting() {
-        this.setState({
-            heading: GreetingStore.getCurrentGreeting()
-        });
-    }
 
     componentDidMount() {
         GreetingStore.addChangeListener(this._onNewGreeting);
@@ -35,6 +30,12 @@ class App extends React.Component {
         GreetingStore.removeChangeListener(this._onNewGreeting);
     }
 
+
+    _onNewGreeting() {
+        this.setState({
+            heading: GreetingStore.getCurrentGreeting()
+        });
+    }
     render() {
 
         let heading = `${this.state.heading}, React`;

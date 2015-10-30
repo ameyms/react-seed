@@ -1,7 +1,7 @@
 var fs = require('fs'),
     path = require('path'),
     chalk = require('chalk'),
-    execSync = require('exec-sync'),
+    execSync = require('child_process').execSync,
     md5 = require('md5'),
     deltaCollector = require('../scripts/delta-collector'),
     getDeltas;
@@ -84,7 +84,8 @@ module.exports = function(grunt) {
                     grunt.log.writeln('\n' + chalk.bgBlue.bold(' INFO ') + '  ' +
                         chalk.gray('Jest breaks if there is only one test file. ') +
                         chalk.white.bold('Executing 2 tests...\n'));
-                    config.testPathIgnorePatterns = ignorePatterns.slice(0, ignorePatterns.length - 1);
+                    config.testPathIgnorePatterns =
+                        ignorePatterns.slice(0, ignorePatterns.length - 1);
                 } else {
 
                     totalRuns = changeSet.length;

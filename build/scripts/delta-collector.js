@@ -1,6 +1,6 @@
 var path = require('path'),
     fs = require('fs'),
-    execSync = require('exec-sync'),
+    execSync = require('child_process').execSync,
     Immutable = require('immutable'),
     traverse = require('../scripts/traverse'),
     dependencyGraph = {},

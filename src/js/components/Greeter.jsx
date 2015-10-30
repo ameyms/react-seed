@@ -9,7 +9,7 @@ export default class Greeter extends Component {
     constructor() {
         super();
         this.state = {
-            greeting: 'Hello'
+            greeting: 'Namaste'
         };
 
         this.handleGreetingFetch = this.handleGreetingFetch.bind(this);
@@ -67,7 +67,7 @@ export default class Greeter extends Component {
                     </label>
                     <button className="btn btn-success btn-lg pull-right greeter-btn"
                         ref="greetBtn" onClick={this.handleClick}>
-                        Say it
+                        {'Say it'}
                     </button>
                 </div>
                 <ul>

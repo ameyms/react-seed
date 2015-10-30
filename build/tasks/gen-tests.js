@@ -65,7 +65,8 @@ module.exports = function(grunt) {
                         chalk.gray('GenTest created new test module for ') +
                         chalk.white.bold(mdir + '.' + srcModule));
 
-                    grunt.file.write(tp, dummyTestCode.replace(/Dummy/g, srcModule), {encoding: 'utf8'});
+                    grunt.file.write(tp, dummyTestCode.replace(/Dummy/g, srcModule),
+                                    {encoding: 'utf8'});
                     created++;
 
                 }}

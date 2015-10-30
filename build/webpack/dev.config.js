@@ -53,7 +53,7 @@ module.exports = {devserver: devServerOpts,
             },
             {
                 test: /\.jsx?$/,
-                loaders: ['react-hot', 'babel'],
+                loaders: ['babel'],
                 exclude: /(node_modules|bower_components)/
             },
             {

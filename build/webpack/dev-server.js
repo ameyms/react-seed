@@ -4,6 +4,7 @@ module.exports = {
 
     start: function() {
         process.env.DEV_SERVER = 1;
+        process.env.BABEL_ENV = 'dev';
 
         var webpack = require('webpack'),
             WebpackDevServer = require('webpack-dev-server'),
@@ -28,7 +29,7 @@ module.exports = {
                 return;
             }
 
-            opn('localhost:' + config.devserver.port, function() {
+            opn('http://localhost:' + config.devserver.port, function() {
                 console.log(chalk.white('Listening at',
                     chalk.black.bgWhite('localhost:' + config.devserver.port)));
             });

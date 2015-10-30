@@ -107,13 +107,10 @@ module.exports = function(grunt) {
             }
         },
 
-        flow: {
-            options: {}
-        },
-
         eslint: {
             source: {
-                src: ['src/js/{,*/}*.{js,jsx}', '!src/js/{,*/}__tests__/*.js']
+                src: ['src/js/{,*/}*.{js,jsx}', '!src/js/{,*/}__tests__/*.js'],
+                options: {}
             },
 
             tests: {
@@ -136,6 +133,7 @@ module.exports = function(grunt) {
             cfgfiles: {
                 src: [
                     '.eslintrc',
+                    '.babelrc',
                     'src/js/{,*/}__tests__/.eslintrc',
                     'build/**/*.json'
                 ]
@@ -158,7 +156,7 @@ module.exports = function(grunt) {
                     config: 'build/jest/config.json',
                     testPathPattern: /.*-test\.jsx?/,
                     cacheDir: jestCacheDir,
-                    smoke: true,
+                    smoke: true
                     // useCache: false
                 }
             }
