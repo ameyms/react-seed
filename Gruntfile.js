@@ -161,6 +161,11 @@ module.exports = function(grunt) {
             }
         },
 
+        coveralls: {
+            options: {
+                src: 'coverage/lcov.info'
+            }
+        },
 
         webpack: {
             build: prodBuild.getConfig()
@@ -222,7 +227,8 @@ module.exports = function(grunt) {
         'clean:dist',
         'test',
         'webpack:build',
-        'copy:build'
+        'copy:build',
+        'coveralls'
     ]);
 
     grunt.registerTask('release', [
@@ -230,7 +236,8 @@ module.exports = function(grunt) {
         'test',
         'webpack:build',
         'copy:release',
-        'htmlmin'
+        'htmlmin',
+        'coveralls'
     ]);
 
 };
