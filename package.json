@@ -22,7 +22,6 @@
     "flux": "^2.0.3",
     "immutable": "^3.7.4",
     "jquery": "^2.1.4",
-<<<<<<< HEAD
     "object-assign": "^4.0.1",
     "react": "^0.13.3",
     "react-dom": "^0.14.1",
