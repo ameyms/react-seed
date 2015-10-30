@@ -35,7 +35,7 @@ describe('Greeter', function() {
     describe('pre conditions', function() {
         it('initially says `Hello`', function() {
             let spanNode = React.findDOMNode(spanEl);
-            expect(spanNode.textContent).toMatch('Hello');
+            expect(spanNode.textContent).toBe('Hello');
         });
     });
 
@@ -47,7 +47,7 @@ describe('Greeter', function() {
 
         it('changes greeting when its changed in textbox', function() {
             let spanNode = React.findDOMNode(spanEl);
-            expect(spanNode.textContent).toMatch('Namaste');
+            expect(spanNode.textContent).toBe('Namaste');
         });
     });
 

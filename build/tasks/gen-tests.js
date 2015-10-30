@@ -15,13 +15,14 @@ module.exports = function(grunt) {
         if (srcJsFileMatcher.test(fpath)) {
             if (ignoreTest) {
                 switch (grunt.util.kindOf(ignoreTest)) {
-                case 'regexp':
-                    return !ignoreTest.test(fpath);
+                    case 'regexp':
+                        return !ignoreTest.test(fpath);
 
-                case 'function':
-                    return !ignoreTest(fpath);
-                default:
-                    return true;
+                    case 'function':
+                        return !ignoreTest(fpath);
+
+                    default:
+                        return true;
                 }
             } else {
                 return true;

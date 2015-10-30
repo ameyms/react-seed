@@ -103,8 +103,14 @@ module.exports = function(grunt) {
 
             midTime = Date.now();
 
-            require('jest-cli').runCLI(opts, process.cwd(), function() {
+            require('jest-cli').runCLI(opts, process.cwd(), function(passed) {
 
+                if (!passed) {
+                    grunt.log.error(chalk.white.bgRed.bold(' FAIL ') + ' ' +
+                        chalk.red('One or more tests failed'));
+                    done(false);
+                    return 1;
+                }
                 done();
                 var endTime = Date.now();
 

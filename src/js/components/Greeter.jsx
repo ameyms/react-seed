@@ -9,7 +9,7 @@ export default class Greeter extends Component {
     constructor() {
         super();
         this.state = {
-            greeting: 'Namaste'
+            greeting: 'Hello'
         };
 
         this.handleGreetingFetch = this.handleGreetingFetch.bind(this);
