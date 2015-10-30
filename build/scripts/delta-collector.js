@@ -6,7 +6,7 @@ var path = require('path'),
     dependencyGraph = {},
     inverseDependencyGraph = {},
 
-    filterTests, listChanged, getUnchangedPathMatchers, normalizeStrToRegexp,
+    filterTests, getUnchangedPathMatchers, normalizeStrToRegexp,
     listChanged, listAllTests, listUnchanged, initDependencyGraph;
 
 

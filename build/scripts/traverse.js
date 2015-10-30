@@ -15,7 +15,7 @@ unixifyPath = function(filepath) {
     }
 };
 
-recurse = function recurse(rootdir, callback, subdir) {
+recurse = function(rootdir, callback, subdir) {
     var abspath = subdir ? path.join(rootdir, subdir) : rootdir;
     fs.readdirSync(abspath).forEach(function(filename) {
         var filepath = path.join(abspath, filename);
@@ -28,7 +28,7 @@ recurse = function recurse(rootdir, callback, subdir) {
 };
 
 // Read a file, return its contents.
-read = function read(filepath, options) {
+read = function(filepath, options) {
     if (!options) {
         options = {};
     }
