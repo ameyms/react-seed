@@ -51,7 +51,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'less']
+                loaders: ['style', 'css', 'autoprefixer', 'less']
             },
             {
                 test: /\.jsx?$/,
@@ -81,9 +81,11 @@ module.exports = {
     resolve: {
         root: rootDir,
         modulesDirectories: ['src/js', 'node_modules'],
-        extensions: ['.js', '.json', '.jsx', '.less'],
+        extensions: ['', '.js', '.json', '.jsx', '.less'],
         alias: {styles: 'src/styles'}
     },
+
+    devtool: 'source-map',
 
     plugins: [normalReplacePlugin, commonsPlugin, hotReplacePlugin, noErrorsPlugin]
 };

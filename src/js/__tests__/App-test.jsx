@@ -3,13 +3,14 @@ jest.dontMock('../App');
 
 xdescribe('App', function() {
 
-    var React, TestUtils,
+    var React, ReactDOM, TestUtils,
         GreetingStore, App,
         appEl, heroText, dummyChangeHandler;
 
     beforeEach(function() {
-        React = require('react/addons');
-        TestUtils = React.addons.TestUtils;
+        React = require('react');
+        ReactDOM = require('react-dom');
+        TestUtils = require('react-addons-test-utils');
 
 
         GreetingStore = require('../stores/GreetingStore');
@@ -37,7 +38,7 @@ xdescribe('App', function() {
         });
 
         it('should change hero text', function() {
-            let headingNode = React.findDOMNode(heroText);
+            let headingNode = ReactDOM.findDOMNode(heroText);
             expect(headingNode.textContent).toMatch('nuqneH');
         });
 

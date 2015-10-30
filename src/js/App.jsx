@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Greeter from './components/Greeter';
 import NavBar from './components/NavBar';
 import GreetingStore from './stores/GreetingStore';
 
 import 'styles/main.less';
 
-export default class App extends React.Component {
+export default class App extends Component {
 
     constructor() {
         super();
@@ -16,9 +16,6 @@ export default class App extends React.Component {
         };
 
         this._onNewGreeting = this._onNewGreeting.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
-        this.componentDidUnmount = this.componentDidUnmount.bind(this);
-        this.render = this.render.bind(this);
     }
 
 
@@ -26,7 +23,7 @@ export default class App extends React.Component {
         GreetingStore.addChangeListener(this._onNewGreeting);
     }
 
-    componentDidUnmount() {
+    componentWillUnmount() {
         GreetingStore.removeChangeListener(this._onNewGreeting);
     }
 
