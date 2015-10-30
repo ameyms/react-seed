@@ -55,8 +55,13 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                loaders: ['babel'],
-                exclude: /(node_modules|bower_components)/
+                loader: 'babel-loader',
+                exclude: /(node_modules|bower_components)/,
+                query: {
+                    cacheDirectory: true,
+                    optional: ['runtime'],
+                    stage: 2
+                }
             },
             {
                 test: /\.svg$/,

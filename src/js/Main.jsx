@@ -1,10 +1,11 @@
 import App from './App';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {init} from './commons/Router';
 
 function main() {
     init();
-    React.render(<App/>, document.getElementById('appRoot'));
+    ReactDOM.render(<App/>, document.getElementById('appRoot'));
 }
 
 main();

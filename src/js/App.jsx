@@ -5,7 +5,7 @@ import GreetingStore from './stores/GreetingStore';
 
 import 'styles/main.less';
 
-class App extends React.Component {
+export default class App extends React.Component {
 
     constructor() {
         super();
@@ -57,5 +57,3 @@ class App extends React.Component {
 }
 
 App.displayName = 'App';
-
-export default App;

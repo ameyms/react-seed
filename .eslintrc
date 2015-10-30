@@ -33,8 +33,16 @@
   "rules": {
     "no-mixed-requires": [0, false],
     "strict": [1, "never"],
+
     "no-undef": 2,
+    "no-delete-var": 2,
+    "no-shadow": 2,
+    "no-shadow-restricted-names": 2,
     "no-unused-vars": [2, {"vars": "all", "args": "after-used"}],
+    "no-undefined": 2,
+    "no-use-before-define": 2,
+    "no-unneeded-ternary": 1,
+
     "curly": 1,
     "no-bitwise": 1,
     "max-len": [1, 100, 4, {
@@ -88,6 +96,24 @@
     "space-return-throw-case": 2,
     "max-nested-callbacks": [2, 3],
     "one-var": [0, "always"],
+
+    "eqeqeq": [2, "smart"],
+    "no-cond-assign": [2, "except-parens"],
+    "no-duplicate-case": 2,
+    "no-dupe-args": 2,
+    "no-dupe-keys": 2,
+    "no-unreachable": 2,
+    "use-isnan": 2,
+    "no-redeclare": [2, { "builtinGlobals": true }],
+    "no-alert": 2,
+    "no-useless-call": 2,
+    "no-with": 2,
+    "no-void": 2,
+    "no-new-wrappers": 2,
+
+    "no-unexpected-multiline": 2,
+    "linebreak-style": [2, "unix"],
+    "no-trailing-spaces": [2, { "skipBlankLines": false }],
     "eol-last": 2,
 
     "babel/generator-star-spacing": 1,
