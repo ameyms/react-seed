@@ -8,6 +8,6 @@ script: grunt build
 after_success: codeclimate-test-reporter < ./coverage/lcov.info
 env:
   global:
-    - GH_REF: github.com/zeusjs/widgets.git
+    - GH_REF: github.com/ameyms/react-seed.git
     - secure: fhYSV8iaao2y8Dcpog0PNG06KvbZeB5bYyi4gxX0HEMD4hRQITCfL/wsAVLP3VxQWn7wcFul3fYOs43SSKs1vgf0SaDhbpQGDD+Y+giEyTuYBa2Ksf/NzxCQ0jtIP3+c5bMCXfzmCyjfhtNd4YKgS3tO+q+ALYljiMYdJTUshhY=
     - secure: n4A0EB/Bpu3pt+saE3Uk5zj++32zIAghrrckAtPy5yCFecLHMujEWBvd4ncDoeWxAPlADuYaKslqfFct1VQH4L88nw2VnR+YuzBmVcTcR7nNOdzMrYsnilJzwXRI5NSTRUxMh6pMJ1SbV4Pj1dRI9MqPdWMInXKkJQUMYzkQXu4=
