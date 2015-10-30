@@ -73,6 +73,7 @@
         "capIsNewExceptions": ["Immutable", "Set"]
     }],
 
+
     "space-after-keywords": [1, "always"],
     "space-before-blocks": [1, "always"],
     "array-bracket-spacing": [2, "never"],
@@ -87,7 +88,6 @@
     "space-return-throw-case": 2,
     "max-nested-callbacks": [2, 3],
     "one-var": [0, "always"],
-
     "eol-last": 2,
 
     "babel/generator-star-spacing": 1,

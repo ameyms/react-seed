@@ -21,7 +21,6 @@
 
         "no-loop-func": 1,
         "no-multi-spaces": 1,
-
         "comma-dangle": [1, "never"],
         "quotes": [2, "single"],
         "semi": [2, "always"],

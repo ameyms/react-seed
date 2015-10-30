@@ -1,4 +1,6 @@
 # react-seed
+[![Test Coverage](https://codeclimate.com/github/ameyms/react-seed/badges/coverage.svg)](https://codeclimate.com/github/ameyms/react-seed/coverage) [![Code Climate](https://codeclimate.com/github/ameyms/react-seed/badges/gpa.svg)](https://codeclimate.com/github/ameyms/react-seed) [![Dependency Status](https://david-dm.org/ameyms/react-seed.svg)](https://david-dm.org/ameyms/react-seed) [![devDependency Status](https://david-dm.org/ameyms/react-seed/dev-status.svg)](https://david-dm.org/ameyms/react-seed#info=devDependencies)
+
 An opinionated starter kit for ReactJS.
 _Batteries included_.
 

@@ -1,0 +1,13 @@
+[ignore]
+.*/styles/*
+.*/src/styles/*
+.*node_modules/flow-bin/*
+.*node_modules/grunt-flow/*
+.*node_modules/webpack/*
+
+[include]
+.*src/js/*
+
+[libs]
+
+[options]

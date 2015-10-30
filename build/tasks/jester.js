@@ -34,7 +34,8 @@ getDeltas = function(grunt, opts) {
                         'Jester has determined the change set via cache lookup');
 
                     return cachedDelta;
-                }}
+                }
+            }
         }
     }
 
@@ -95,7 +96,8 @@ module.exports = function(grunt) {
                 grunt.file.write(fastTestConfigPath, JSON.stringify(config));
                 opts.config = fastTestConfigPath;
 
-            }}
+            }
+        }
 
         if (foundTests) {
 

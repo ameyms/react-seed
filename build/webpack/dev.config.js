@@ -17,7 +17,9 @@ commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 hotReplacePlugin = new webpack.HotModuleReplacementPlugin();
 noErrorsPlugin = new webpack.NoErrorsPlugin();
 
-module.exports = {devserver: devServerOpts,
+module.exports = {
+
+    devserver: devServerOpts,
 
     entry: {
         main: [
@@ -49,7 +51,7 @@ module.exports = {devserver: devServerOpts,
         loaders: [
             {
                 test: /\.less$/,
-                loaders: ['style', 'css', 'autoprefixer', 'less']
+                loaders: ['style', 'css', 'less']
             },
             {
                 test: /\.jsx?$/,
@@ -74,7 +76,7 @@ module.exports = {devserver: devServerOpts,
     resolve: {
         root: rootDir,
         modulesDirectories: ['src/js', 'node_modules'],
-        extensions: ['', '.js', '.json', '.jsx', '.less'],
+        extensions: ['.js', '.json', '.jsx', '.less'],
         alias: {styles: 'src/styles'}
     },
 
