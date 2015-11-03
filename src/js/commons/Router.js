@@ -17,7 +17,7 @@ const AppRouter = Backbone.Router.extend({
 });
 
 export function init() {
-    let routerInstance = new AppRouter();
+    const routerInstance = new AppRouter();
     Backbone.history.start();
 
     return routerInstance;

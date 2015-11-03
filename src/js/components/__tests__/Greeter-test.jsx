@@ -38,19 +38,19 @@ describe('Greeter', function() {
 
     describe('pre conditions', function() {
         it('initially says `Hello`', function() {
-            let spanNode = ReactDOM.findDOMNode(spanEl);
+            const spanNode = ReactDOM.findDOMNode(spanEl);
             expect(spanNode.textContent).toBe('Hello');
         });
     });
 
     describe('reactions to typing', function() {
         beforeEach(function() {
-            let txtBoxNode = ReactDOM.findDOMNode(textBoxEl);
+            const txtBoxNode = ReactDOM.findDOMNode(textBoxEl);
             TestUtils.Simulate.change(txtBoxNode, {target: {value: 'Namaste'}});
         });
 
         it('changes greeting when its changed in textbox', function() {
-            let spanNode = ReactDOM.findDOMNode(spanEl);
+            const spanNode = ReactDOM.findDOMNode(spanEl);
             expect(spanNode.textContent).toBe('Namaste');
         });
     });
@@ -58,7 +58,7 @@ describe('Greeter', function() {
 
     describe('reactions to button click', function() {
         beforeEach(function() {
-            let btnNode = ReactDOM.findDOMNode(btnEl);
+            const btnNode = ReactDOM.findDOMNode(btnEl);
             TestUtils.Simulate.click(btnNode);
         });
 
@@ -75,8 +75,8 @@ describe('Greeter', function() {
         pit('should fetch a list of greetings', function() {
 
             return dummyPromise.then(function() {
-                let ul = TestUtils.findRenderedDOMComponentWithTag(greeterEl, ReactDOM.ul);
-                let items = TestUtils.scryRenderedDOMComponentsWithTag(ul, ReactDOM.li);
+                const ul = TestUtils.findRenderedDOMComponentWithTag(greeterEl, ReactDOM.ul);
+                const items = TestUtils.scryRenderedDOMComponentsWithTag(ul, ReactDOM.li);
                 expect(items.length).toBe(mockResponse.data.list.length);
 
             });

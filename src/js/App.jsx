@@ -20,11 +20,11 @@ export default class App extends Component {
 
 
     componentDidMount() {
-        GreetingStore.addChangeListener(this._onNewGreeting);
+        this.removeListener = GreetingStore.addListener(this._onNewGreeting.bind(this));
     }
 
     componentWillUnmount() {
-        GreetingStore.removeChangeListener(this._onNewGreeting);
+        this.removeListener();
     }
 
 
@@ -35,7 +35,7 @@ export default class App extends Component {
     }
     render() {
 
-        let heading = `${this.state.heading}, React`;
+        const heading = `${this.state.heading}, React`;
 
         return (
             <div>

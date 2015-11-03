@@ -1,40 +1,30 @@
 /* @flow */
 
-import AppDispatcher from '../commons/AppDispatcher';
-import {EventEmitter} from 'events';
+import globalDispatcher from '../commons/AppDispatcher';
+import {Store} from 'flux/utils';
 import {SEND_GREET} from '../constants/GreetingConstants';
 
-let CHANGE_EVENT = 'CHANGE_EVENT';
 let _currentGreeting = 'Hello';
 
-class GreetingStore extends EventEmitter {
+class GreetingStore extends Store {
+
+    constructor(dispatcher) {
+        super(dispatcher);
+    }
 
     getCurrentGreeting() {
         return _currentGreeting;
     }
 
-    emitChange() {
-        this.emit(CHANGE_EVENT);
-    }
-
-    addChangeListener(callback) {
-        this.on(CHANGE_EVENT, callback);
-    }
-
-    removeChangeListener(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+    __onDispatch(action) {
+        switch (action.actionType) {
+            case SEND_GREET:
+                _currentGreeting = action.greetingText;
+                this.__emitChange();
+                break;
+        }
     }
 }
 
-const instance = new GreetingStore();
+const instance = new GreetingStore(globalDispatcher);
 export default instance;
-
-AppDispatcher.register(action => {
-
-    switch (action.actionType) {
-        case SEND_GREET:
-            _currentGreeting = action.greetingText;
-            instance.emitChange();
-            break;
-    }
-});

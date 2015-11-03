@@ -42,19 +42,25 @@
     "no-undefined": 2,
     "no-use-before-define": 2,
     "no-unneeded-ternary": 1,
+    "no-obj-calls": 2,
+    "no-negated-in-lhs": 2,
+    "no-inner-declarations": 2,
 
     "curly": 1,
+    "camelcase": 2,
+
     "no-bitwise": 1,
     "max-len": [1, 100, 4, {
       "ignoreComments": true,
       "ignoreUrls": true,
       "ignorePattern": "^\\s*import\\s+"
     }],
-    "vars-on-top": 0,
+    "no-invalid-regexp": 2,
+    "vars-on-top": 1,
     "guard-for-in": 1,
     "no-underscore-dangle": 0,
     "no-func-assign": 2,
-
+    "no-extra-parens": 0,
     "no-loop-func": 1,
     "no-multi-spaces": 1,
 
@@ -98,7 +104,16 @@
     "one-var": [0, "always"],
 
     "eqeqeq": [2, "smart"],
+    "accessor-pairs": [1, {"getWithoutSet": true}],
+
     "no-cond-assign": [2, "except-parens"],
+    "valid-typeof": 1,
+
+    "no-div-regex": 2,
+    "no-control-regex": 2,
+    "no-caller": 2,
+    "no-alert": 2,
+    "no-with": 2,
     "no-duplicate-case": 2,
     "no-dupe-args": 2,
     "no-dupe-keys": 2,
@@ -111,10 +126,23 @@
     "no-void": 2,
     "no-new-wrappers": 2,
 
+    "no-new-require": 2,
+    "no-path-concat": 2,
+
+    "no-lonely-if": 1,
+    "no-array-constructor": 1,
+
     "no-unexpected-multiline": 2,
     "linebreak-style": [2, "unix"],
-    "no-trailing-spaces": [2, { "skipBlankLines": false }],
+    "no-trailing-spaces": [1, { "skipBlankLines": false }],
     "eol-last": 2,
+
+    "prefer-spread": 1,
+    "no-this-before-super": 2,
+    "constructor-super": 2,
+    "prefer-const": 1,
+
+    "no-bitwise": 1,
 
     "babel/generator-star-spacing": 1,
     "babel/new-cap": 0,

@@ -48,7 +48,7 @@
         "space-return-throw-case": 2,
         "max-nested-callbacks": [2, 3],
         "one-var": [0, "always"],
-
+        "no-path-concat": 0,
         "eol-last": 2,
         "babel/object-shorthand": 0
     },

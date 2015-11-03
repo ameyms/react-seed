@@ -25,7 +25,6 @@
         "<rootDir>/node_modules/d3",
         "<rootDir>/node_modules/classnames",
         "<rootDir>/node_modules/es6-promise",
-        "<rootDir>/node_modules/flux",
         "<rootDir>/node_modules/immutable",
         "<rootDir>/node_modules/fixed-data-table"
     ],

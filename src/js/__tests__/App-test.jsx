@@ -38,7 +38,7 @@ xdescribe('App', function() {
         });
 
         it('should change hero text', function() {
-            let headingNode = ReactDOM.findDOMNode(heroText);
+            const headingNode = ReactDOM.findDOMNode(heroText);
             expect(headingNode.textContent).toMatch('nuqneH');
         });
 
