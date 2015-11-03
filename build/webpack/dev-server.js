@@ -17,7 +17,9 @@ module.exports = {
             historyApiFallback: true,
             quiet: false,
             noInfo: false,
-            watchDelay: 300,
+            watchOptions: {
+                aggregateTimeout: 300
+            },
             contentBase: 'dist/bundle',
             headers: {'X-React-Auth': 'yes'},
             stats: {colors: true}

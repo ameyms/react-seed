@@ -1,5 +1,3 @@
-import 'styles/components/Greeter.less';
-
 import React, {Component} from 'react';
 import {greet} from '../actions/GreetingActions';
 import {list} from '../xhr/GreeterXhrApi';

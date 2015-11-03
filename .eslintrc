@@ -56,7 +56,7 @@
       "ignorePattern": "^\\s*import\\s+"
     }],
     "no-invalid-regexp": 2,
-    "vars-on-top": 1,
+    "vars-on-top": 0,
     "guard-for-in": 1,
     "no-underscore-dangle": 0,
     "no-func-assign": 2,

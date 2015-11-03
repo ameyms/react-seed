@@ -3,7 +3,7 @@ import Greeter from './components/Greeter';
 import NavBar from './components/NavBar';
 import GreetingStore from './stores/GreetingStore';
 
-import 'styles/main.less';
+import 'styles/index';
 
 export default class App extends Component {
 

@@ -50,8 +50,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.less$/,
-                loaders: ['style', 'css', 'autoprefixer', 'less']
+                test: /\.scss$/,
+                loaders: ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap']
             },
             {
                 test: /\.jsx?$/,
@@ -81,7 +81,7 @@ module.exports = {
     resolve: {
         root: rootDir,
         modulesDirectories: ['src/js', 'node_modules'],
-        extensions: ['', '.js', '.json', '.jsx', '.less'],
+        extensions: ['', '.js', '.json', '.jsx', '.scss'],
         alias: {styles: 'src/styles'}
     },
 
