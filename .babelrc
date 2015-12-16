@@ -24,6 +24,10 @@
                     }]
                 }
             }
+        },
+
+        "release": {
+            "plugins": ["uglify"]
         }
     }
 }

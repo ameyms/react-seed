@@ -23,7 +23,8 @@
     "object-assign": "^4.0.1",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
-    "redux": "^3.0.4"
+    "react-redux": "^4.0.1",
+    "redux": "^3.0.5"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -41,6 +42,7 @@
     "babel-runtime": "^5.8.29",
     "chalk": "^1.0.0",
     "css-loader": "^0.21.0",
+    "enzyme": "^1.2.0",
     "eslint": "^1.7.3",
     "eslint-plugin-babel": "^2.1.1",
     "eslint-plugin-react": "^3.6.3",

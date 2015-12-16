@@ -231,13 +231,18 @@ module.exports = function(grunt) {
         'coveralls'
     ]);
 
-    grunt.registerTask('release', [
-        'clean:dist',
-        'test',
-        'webpack:build',
-        'copy:release',
-        'htmlmin',
-        'coveralls'
-    ]);
+    grunt.registerTask('release', 'Create release package', function() {
+
+        process.env.BABEL_ENV = 'release';
+
+        grunt.task.run([
+            'clean:dist',
+            'test',
+            'webpack:build',
+            'copy:release',
+            'htmlmin',
+            'coveralls'
+        ]);
+    });
 
 };
