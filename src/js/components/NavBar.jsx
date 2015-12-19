@@ -1,9 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class NavBar extends Component {
-
-    render() {
-        return (
+const NavBar = () => (
             <nav className="navbar navbar-default navbar-static-top" role="navigation">
                 <div className="container">
                     <div className="navbar-header">
@@ -27,9 +24,7 @@ class NavBar extends Component {
                     </div>
                 </div>
             </nav>
-        );
-    }
-}
+    );
 
 NavBar.displayName = 'NavBar';
 
