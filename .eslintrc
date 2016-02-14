@@ -55,6 +55,7 @@
       "ignoreUrls": true,
       "ignorePattern": "^\\s*import\\s+"
     }],
+    "padded-blocks": [0, "always"],
     "no-invalid-regexp": 2,
     "vars-on-top": 0,
     "guard-for-in": 1,

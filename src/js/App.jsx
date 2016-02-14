@@ -1,54 +1,80 @@
 import React, {Component} from 'react';
-import Greeter from './components/Greeter';
-import NavBar from './components/NavBar';
-import GreetingStore from './stores/GreetingStore';
+
+import store from './commons/store';
+import Header from './components/Header';
+import Todo from './components/Todo';
+
 
 import 'styles/index';
+import 'todomvc-app-css/index';
 
 export default class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            viewReady: false,
-            dataReady: false,
-            heading: GreetingStore.getCurrentGreeting()
+            heading: 'Hello'
         };
-
-        this._onNewGreeting = this._onNewGreeting.bind(this);
     }
 
-
     componentDidMount() {
-        this.removeListener = GreetingStore.addListener(this._onNewGreeting.bind(this));
+        this.unsubscribe = store.subscribe(() => {
+            this._onStoreChange();
+        });
     }
 
     componentWillUnmount() {
-        this.removeListener();
+        this.unsubscribe();
     }
 
 
-    _onNewGreeting() {
-        this.setState({
-            heading: GreetingStore.getCurrentGreeting()
-        });
+    _onStoreChange() {
+        this.setState({});
     }
+
+
     render() {
 
-        const heading = `${this.state.heading}, React`;
-
         return (
-            <div>
-                <NavBar />
-                <div className="container">
-                    <div className="jumbotron">
-                        <h1 ref="heroText">{heading}</h1>
-                    </div>
-                    <div className="col-lg-12">
-                        <Greeter/>
-                    </div>
-                </div>
-            </div>
+            <section className="todoapp">
+                <Header/>
+                <section className="main">
+    				<input className="toggle-all" type="checkbox" />
+    				<label htmlFor="toggle-all">
+                        {'Mark all as complete'}
+                    </label>
+    				<ul className="todo-list">
+                        {store.getState().todos.map(t => (
+                            <Todo item={t} />
+                        ))}
+    				</ul>
+                </section>
+                <footer className="footer">
+                    <span className="todo-count">
+                        <strong>{store.getState().todos.reduce((count, t) => {
+                            if (!t.completed) {
+                                return count + 1;
+                            } else {
+                                return count;
+                            }
+                        }, 0)}</strong>
+                        {' items left'}</span>
+                    <ul className="filters">
+                        <li>
+                        	<a className="selected" href="#/">{'All'}</a>
+                        </li>
+                        <li>
+                        	<a href="#/active">{'Active'}</a>
+                        </li>
+                        <li>
+                        	<a href="#/completed">{'Completed'}</a>
+                        </li>
+                    </ul>
+                    <button className="clear-completed">
+                        {'Clear completed'}
+                    </button>
+                </footer>
+            </section>
         );
     }
 }

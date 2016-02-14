@@ -54,6 +54,10 @@ module.exports = {
                 loaders: ['style', 'css?sourceMap', 'autoprefixer', 'sass?sourceMap']
             },
             {
+                test: /\.css$/,
+                loaders: ['style', 'css', 'autoprefixer']
+            },
+            {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/,
@@ -81,7 +85,7 @@ module.exports = {
     resolve: {
         root: rootDir,
         modulesDirectories: ['src/js', 'node_modules'],
-        extensions: ['', '.js', '.json', '.jsx', '.scss'],
+        extensions: ['', '.js', '.json', '.jsx', '.scss', '.css'],
         alias: {styles: 'src/styles'}
     },
 
