@@ -48,8 +48,6 @@
 
     "curly": 1,
     "camelcase": 2,
-
-    "no-bitwise": 1,
     "max-len": [1, 100, 4, {
       "ignoreComments": true,
       "ignoreUrls": true,
@@ -89,7 +87,8 @@
     }],
 
 
-    "space-after-keywords": [1, "always"],
+    "keyword-spacing": [2, {"before": true, "after": true}],
+
     "space-before-blocks": [1, "always"],
     "array-bracket-spacing": [2, "never"],
     "object-curly-spacing": [2, "never", {
@@ -100,7 +99,6 @@
     "space-in-parens": [1, "never"],
     "space-before-function-paren": [1, "never"],
     "space-infix-ops": [2, {"int32Hint": false}],
-    "space-return-throw-case": 2,
     "max-nested-callbacks": [2, 3],
     "one-var": [0, "always"],
 
@@ -121,9 +119,7 @@
     "no-unreachable": 2,
     "use-isnan": 2,
     "no-redeclare": [2, { "builtinGlobals": true }],
-    "no-alert": 2,
     "no-useless-call": 2,
-    "no-with": 2,
     "no-void": 2,
     "no-new-wrappers": 2,
 

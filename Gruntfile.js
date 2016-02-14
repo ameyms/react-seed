@@ -210,6 +210,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('serve', 'Compile then start a connect web server',
         function() {
+            process.env.NODE_ENV = 'dev';
+
             grunt.task.run([
                 'lint',
                 'clean:dist',
@@ -233,7 +235,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('release', 'Create release package', function() {
 
-        process.env.BABEL_ENV = 'release';
+        process.env.NODE_ENV = 'release';
 
         grunt.task.run([
             'clean:dist',
