@@ -70,7 +70,7 @@ listChanged = function(includeChangedSrc) {
     var modifiedFiles = [],
         mFilesOutput;
 
-    mFilesOutput = execSync('git status --porcelain').trim();
+    mFilesOutput = execSync('git status --porcelain').toString('utf8').trim();
 
     modifiedFiles = filterTests(mFilesOutput, includeChangedSrc);
 
