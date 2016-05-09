@@ -227,7 +227,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         // 'genTests',
         'clean:dist',
-        'test',
+        //'test',
         'webpack:build',
         'copy:build',
         'coveralls'
@@ -236,6 +236,7 @@ module.exports = function(grunt) {
     grunt.registerTask('release', 'Create release package', function() {
 
         process.env.NODE_ENV = 'release';
+        process.env.BABEL_ENV = 'release';
 
         grunt.task.run([
             'clean:dist',

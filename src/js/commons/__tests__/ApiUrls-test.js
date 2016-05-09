@@ -6,7 +6,7 @@ describe('ApiUrls', function() {
     var makeApiRequest;
 
     beforeEach(function() {
-        makeApiRequest = require('../ApiUrls');
+        makeApiRequest = require('../ApiUrls').default;
     });
 
     describe('Greeting APIs', function() {
